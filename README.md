@@ -1,9 +1,11 @@
-### <b>Tema: O desenho como refúgio emocional</b>:
+### <b>Tema: O desenho como conexão emocional</b>:
 ---
 <p align="left" style="text-align: justify;">
-<i>Uma abordagem terapêutica para indivíduos com depressão</i><br>
+<i>A interação humana por meio da arte e da tecnologia, como forma de diminuir o isolamento e assim, suas consequências emocionais.</i><br>
+
 <b>Descrição:</b>
-Este projeto é sobre como o ato de desenhar pode funcionar como uma ferramenta terapêutica e emocional para pessoas que enfrentam a depressão. </p>
+Este projeto é sobre incentivar a brincadeira coletiva por meio do desenho colaborativo. A proposta é oferecer um espaço onde crianças possam se expressar e se conectar com outras, evitando o isolamento social, que pode ser um gatilho para problemas emocionais como ansiedade e depressão </p>
+<hr>
 
 <p align="left" style="text-align: justify;">
     &nbsp;&nbsp;&nbsp;&nbsp; Meu nome é <b>Anne Yukari</b> e este é o meu primeiro projeto individual como aluna do 1º semestre na SPTech.<br> 
@@ -14,7 +16,7 @@ Este projeto é sobre como o ato de desenhar pode funcionar como uma ferramenta 
 <img align="right" style="margin-left: 20px" alt="image-gif" width="300" src="image/gif.gif">
 
 <p align="left" style="text-align: justify;">
-    &nbsp;&nbsp;&nbsp;&nbsp; Desde pequena, eu sempre fui apaixonada pela criatividade — e isso se reflete tanto no meu amor por desenhar quanto na forma como vejo a tecnologia. Pois para mim, programar é como rabiscar minhas ideias no papel: começa com um traço solto, mas logo se transforma em algo com forma, cor e propósito. Sem um limite da imaginação.
+    &nbsp;&nbsp;&nbsp;&nbsp; Desde pequena, eu sempre fui apaixonada pela criatividade. E isso, se reflete tanto no meu amor por desenhar quanto na forma como vejo a tecnologia. Pois para mim, programar é como rabiscar minhas ideias no papel: começa com um traço solto, mas logo se transforma em algo com forma, cor e propósito. Sem um limite da imaginação.
 </p>
 
 
