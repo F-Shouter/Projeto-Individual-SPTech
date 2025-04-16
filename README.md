@@ -4,7 +4,7 @@
 <i>A interação humana por meio da arte e da tecnologia, como forma de diminuir o isolamento e assim, suas consequências emocionais.</i><br>
 
 <b>Descrição:</b>
-Este projeto é sobre incentivar a brincadeira coletiva por meio do desenho colaborativo. A proposta é oferecer um espaço onde crianças possam se expressar e se conectar com outras, evitando o isolamento social, que pode ser um gatilho para problemas emocionais como ansiedade e depressão </p>
+Este projeto é sobre incentivar a brincadeira coletiva por meio do desenho colaborativo. A proposta é oferecer um espaço onde crianças possam se expressar e se conectar com outras, evitando o isolamento social, que pode ser um gatilho para problemas emocionais como ansiedade e depressão. </p>
 <hr>
 
 <img align="right" style="margin: 10px" alt="image-gif" width="200" src="image/gif.gif">
