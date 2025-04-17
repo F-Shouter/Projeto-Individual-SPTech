@@ -5,6 +5,7 @@ img {
   border: 5px solid #ffffff;
 }
 .conteudo {
+  height: 550px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
