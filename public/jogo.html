@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draw With Me</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/jogo.css">
+  </head>
+  <body onload="retornar()">
+    <div class="conteudo">
+
+      <div class="jogadores">
+          <div class="container">
+          
+            <div class="avatar">
+              <img src="assets/image/1.png" alt="" />
+            </div>
+            <div class="nome">
+                <h1 style="color: black">Jogador 1</h1>
+                <span id="span_jogador1"></span>
+            </div>
+          </div>
+          <div><h1 style="font-size: 70px">VS</h1></div>
+          <div class="container" style="background-color: #f75a5a">
+          
+            <div class="avatar">
+              <img src="assets/image/4.png" alt="" />
+            </div>
+            <div class="nome">
+                <h1 style="color: black">Jogador 2</h1>
+                <span id="span_jogador2"></span>
+            </div>
+          </div>
+      </div>
+
+      <div class="espaço">
+        <div class="linhas">
+            <br><br><br>
+            ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            <br><br><br><br>
+            ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            <br><br><br><br>
+            ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        </div>
+        <div class="pincel">🖌✏🖋🖍🖌</div>
+      </div>
+
+    </div>
+    <div class="rodape">
+      <p>Projeto dedicado pela aluna, Anne Y. Yamasaki - 1ADS/2025</p>
+    </div>
+  </body>
+</html>
+<script>
+  function retornar() {
+  fetch("/usuarios/retornar", { // Faz a requisição ao servidor
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(resposta => resposta.json()) // Converte a resposta para JSON
+    .then(data => {
+      // Atualiza os apelidos na página
+      document.getElementById("span_jogador1").innerText = data.apelido_jogador1;
+      document.getElementById("span_jogador2").innerText = data.apelido_jogador2;
+    })
+    .catch(erro => {
+      console.log(`#ERRO: ${erro}`);
+    });
+}
+</script>

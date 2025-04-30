@@ -1,0 +1,72 @@
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+  }
+  .conteudo {
+    background-color: #FFD63A;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  }
+  .container {
+    display: flex;
+    padding: 20px;
+    width: 400px;
+    height: 110px;
+    background-color: #6de1d2;
+    border-radius: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+  .avatar {
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  .container input {
+    width: 290px;
+    height: 40px;
+    align-self: center;
+    border-radius: 10px;
+    border-color: #ffffff;
+    margin: 30px;
+  }
+  .nome h1 {
+    margin: 0;
+    width: 180px;
+  }
+  .nome span {
+    color: black;
+    font-size: 40px;
+    margin: 15px;
+  }
+  .jogadores {
+    width: 1300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .espaço {
+    width: 1200px;
+    height: 350px;
+    border: solid rgb(255, 255, 255) 3px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    
+  }
+  .linhas {
+    width: 1200px;
+    text-align: center;
+    color: rgba(206, 206, 206, 0.336);
+  }
+  .pincel {
+    margin: 20px;
+    align-self: center;
+    width: 20px;
+    font-size: 30px;
+  }
