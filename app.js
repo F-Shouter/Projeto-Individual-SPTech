@@ -1,8 +1,4 @@
-var ambiente_processo = 'desenvolvimento';
-
-var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
-// Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
-// A sintaxe do operador ternário é: condição ? valor_se_verdadeiro : valor_se_falso
+var caminho_env = '.env.dev';
 
 require("dotenv").config({ path: caminho_env });
 
@@ -33,9 +29,9 @@ app.listen(PORTA_APP, function () {
     #######  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##      ##     
     ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
     ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
-    \n\n\n                                                                                                 
-    Servidor do seu site já está rodando!\n
-    Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n
-    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n
-    \tVocê está se conectando ao banco local.\n`);
+    \n\n\n   
+    Você está rodando sua aplicação em ambiente de ${process.env.AMBIENTE_PROCESSO}. Conectado ao banco local.\n                                                                                              
+    Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar:\n\n
+    http://${HOST_APP}:${PORTA_APP} \n\n
+    `);
 });
