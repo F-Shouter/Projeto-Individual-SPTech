@@ -9,19 +9,12 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 });
 
+//Retornando os dados do banco e direcionando para a função retornar de jogo.html
 router.get("/retornar", function (req, res) {
-    usuarioModel.retornar() // Chama a função no model
-        .then(resultado => {
-            if (resultado.length > 0) {
-                res.json(resultado[0]); // Retorna o primeiro resultado como JSON
-            } else {
-                res.status(404).json({ erro: "Nenhum usuário encontrado" });
-            }
+    usuarioModel.retornar(req) 
+        .then(resultado => { 
+                res.json(resultado[0]);
         })
-        .catch(erro => {
-            console.log(`#ERRO: ${erro}`);
-            res.status(500).json({ erro: erro });
-        });
 });
 
 module.exports = router;
