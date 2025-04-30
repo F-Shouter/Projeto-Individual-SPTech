@@ -1,4 +1,5 @@
-var caminho_env = '.env.dev';
+//var caminho_env = '.env'; //ambiente VIRTUAL de desenvolvimento
+var caminho_env = '.env.dev'; //ambiente LOCAL de desenvolvimento
 
 require("dotenv").config({ path: caminho_env });
 
@@ -29,9 +30,9 @@ app.listen(PORTA_APP, function () {
     #######  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##      ##     
     ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
     ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
-    \n\n\n   
-    Você está rodando sua aplicação em ambiente de ${process.env.AMBIENTE_PROCESSO}. Conectado ao banco local.\n                                                                                              
+    \n\n\n        
+    Você está rodando sua aplicação! Conectado ao banco de dados!\n                                                                                         
     Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar:\n\n
-    http://${HOST_APP}:${PORTA_APP} \n\n
+    \t\t\thttp://${HOST_APP}:${PORTA_APP} \n\n
     `);
 });
