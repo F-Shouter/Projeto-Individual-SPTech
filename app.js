@@ -14,6 +14,7 @@ var app = express();
 var usuarioRouter = require("./src/routes/usuarios");
 var grafico_afastamentoRouter = require("./src/routes/grafico_afastamento");
 var grafico_motivoRouter = require("./src/routes/grafico_motivo");
+var grafico_emocionalRouter = require("./src/routes/grafico_emocional");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,6 +25,7 @@ app.use(cors());
 app.use("/usuarios", usuarioRouter);
 app.use("/grafico_afastamento", grafico_afastamentoRouter);
 app.use("/grafico_motivo", grafico_motivoRouter);
+app.use("/grafico_emocional", grafico_emocionalRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
