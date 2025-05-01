@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="retornar()">
   <div class="menu">
     <div class="opcoes_menu">
       <a style="text-decoration: underline #f75a5a 4px; color: black" href="pesquisa.html">Você Sabia?</a>
@@ -72,7 +72,9 @@
       </div>
     </div>
 
-    <div class="grafico"><canvas id="myChart"></canvas></div>
+    <div class="grafico"><canvas id="canvas_grafico_afastamento"></canvas></div>
+    <div class="grafico"><canvas id="canvas_grafico_motivo"></canvas></div>
+
   </div>
 
   <div class="rodape">
@@ -82,31 +84,91 @@
 
 </html>
 <script>
-  const ctx = document.getElementById("myChart");
-  new Chart(ctx, {
+
+  var qtd_sim_noBancoVar = 0;
+  var qtd_nao_noBancoVar = 0;
+  var percentual_sim;
+  var percentual_nao;
+
+  function retornar() {
+    fetch("/grafico_afastamento/retornar", { // Faz a requisição ao servidor
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json()) // Converte a resposta para JSON
+      .then(data => {
+        // Atualiza os valores com os dados recebidos do servidor
+        qtd_sim_noBancoVar = Number(data.qtd_sim);
+        qtd_nao_noBancoVar = Number(data.qtd_nao);
+
+        console.log("Dados recebidos:", qtd_sim_noBancoVar, qtd_nao_noBancoVar);
+
+        // Calcula os percentuais
+        calculo_percentual();
+
+        // Cria o gráfico após os dados serem carregados e os percentuais calculados
+        criarGraficoAfastamento();
+      })
+      .catch(erro => {
+        console.log(`#ERRO: ${erro}`);
+      });
+  }
+
+  function calculo_percentual() {
+    var total = qtd_sim_noBancoVar + qtd_nao_noBancoVar;
+    if (total === 0) {
+      percentual_sim = 0;
+      percentual_nao = 0;
+    } else {
+      percentual_sim = (qtd_sim_noBancoVar / total) * 100;
+      percentual_nao = (qtd_nao_noBancoVar / total) * 100;
+    }
+
+    console.log("percentual_sim:", percentual_sim, "percentual_nao:", percentual_nao);
+  }
+
+  function criarGraficoAfastamento() {
+    const grafico_afastamento = document.getElementById("canvas_grafico_afastamento");
+    new Chart(grafico_afastamento, {
+      type: "pie",
+      data: {
+        labels: ["Sim", "Não"],
+        datasets: [
+          {
+            label: "percentual",
+            data: [percentual_sim, percentual_nao],
+            backgroundColor: [
+              "rgb(75, 192, 192)",
+              "rgb(255, 99, 132)",
+            ],
+            hoverOffset: 2,
+          },
+        ],
+      },
+    });
+  }
+
+  const grafico_motivo = document.getElementById("canvas_grafico_motivo");
+  new Chart(grafico_motivo, {
     type: "bar",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: ["Bullying", "Problemas em casa", "Apenas maus entendimentos", "Outros"],
       datasets: [
         {
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
+          label: "votos",
+          data: [12, 6, 9, 10],
           backgroundColor: [
             "rgb(255, 99, 132)",
             "rgb(75, 192, 192)",
             "rgb(255, 205, 86)",
             "rgb(201, 203, 207)",
-            "rgb(54, 162, 235)",
           ],
+          hoverOffset: 4
         },
       ],
     },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
   });
+
 </script>

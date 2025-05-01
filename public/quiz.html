@@ -10,10 +10,10 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="retornar()">
   <div class="menu">
     <div class="opcoes_menu">
-        <a href="index.html">Você Sabia?</a>
+      <a href="index.html">Você Sabia?</a>
       <a style="text-decoration: underline #f75a5a 4px; color: black" href="quiz.html">Quiz</a>
       <a href="index.html">JOGO</a>
     </div>
@@ -21,6 +21,86 @@
 
   <div class="conteudo">
     <div class="container">
-     
+      <div class="div_pergunta">
+        <h2>Quando você era criança, houve algum momento em que se afastou de brincar com outras crianças?"</h2>
+      </div>
+      <div class="div_resposta">
+        <button onclick="responder_sim(); atualizar()">Sim</button>
+        <button onclick="responder_nao(); atualizar()">Não</button>
       </div>
     </div>
+  </div>
+  <script>
+
+    var qtd_sim_noBancoVar = 0;
+    var qtd_nao_noBancoVar = 0;
+
+    function retornar() {
+      fetch("/grafico_afastamento/retornar", { // Faz a requisição ao servidor
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then(resposta => resposta.json()) // Converte a resposta para JSON
+        .then(data => {
+          // Atualiza os apelidos na página
+          qtd_sim_noBancoVar = Number(data.qtd_sim);
+          qtd_nao_noBancoVar = Number(data.qtd_nao);
+        })
+        .catch(erro => {
+          console.log(`#ERRO: ${erro}`);
+        });
+    }
+
+    function responder_sim() {
+    qtd_sim_noBancoVar++;
+    console.log("qtd_sim_noBancoVar atualizado para:", qtd_sim_noBancoVar);
+}
+
+    function responder_nao() {
+    qtd_nao_noBancoVar++;
+    console.log("qtd_nao_noBancoVar atualizado para:", qtd_nao_noBancoVar);
+}
+    
+
+
+    function atualizar() {
+      console.log("atualizar() chamado");
+      var qtd_simVar = qtd_sim_noBancoVar;
+      var qtd_naoVar = qtd_nao_noBancoVar;
+
+      fetch("/grafico_afastamento/atualizar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          qtd_simServer: qtd_simVar,
+          qtd_naoServer: qtd_naoVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            limparFormulario();
+            finalizarAguardar();
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      console.log("qtd_sim_noBancoVar:", qtd_sim_noBancoVar);
+      console.log("qtd_nao_noBancoVar:", qtd_nao_noBancoVar);
+      return false;
+    }
+  </script>

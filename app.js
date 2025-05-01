@@ -12,6 +12,7 @@ var HOST_APP = process.env.APP_HOST;
 var app = express();
 
 var usuarioRouter = require("./src/routes/usuarios");
+var grafico_afastamentoRouter = require("./src/routes/grafico_afastamento");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
+app.use("/grafico_afastamento", grafico_afastamentoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
