@@ -19,15 +19,19 @@
     </div>
   </div>
 
-  <div class="conteudo">
+  <div class="conteudo" style="height: 550px;">
     <div class="container">
       <h1 style="color: black">Jogador 1</h1>
       <h1>Escolha seu avatar!</h1>
       <div class="avatar">
-        <img src="assets/image/1.png" alt="" />
-        <img src="assets/image/2.png" alt="" />
-        <img src="assets/image/3.png" alt="" />
-        <img src="assets/image/4.png" alt="" />
+        <button id="avatar1_jogador1" onclick="selecionar_avatar1_jogador1()"><img src="assets/image/1.png"
+            alt="" /></button>
+        <button id="avatar2_jogador1" onclick="selecionar_avatar2_jogador1()"><img src="assets/image/2.png"
+            alt="" /></button>
+        <button id="avatar3_jogador1" onclick="selecionar_avatar3_jogador1()"><img src="assets/image/3.png"
+            alt="" /></button>
+        <button id="avatar4_jogador1" onclick="selecionar_avatar4_jogador1()"><img src="assets/image/4.png"
+            alt="" /></button>
       </div>
       <h1>Apelido:</h1>
       <input id="input_apelido_jogador1" type="text" />
@@ -41,10 +45,10 @@
       <h1 style="color: black">Jogador 2</h1>
       <h1>Escolha seu avatar!</h1>
       <div class="avatar">
-        <img src="assets/image/1.png" alt="" />
-        <img src="assets/image/2.png" alt="" />
-        <img src="assets/image/3.png" alt="" />
-        <img src="assets/image/4.png" alt="" />
+        <button id="avatar1_jogador2" onclick="selecionar_avatar1_jogador2()"><img src="assets/image/1.png" alt="" /></button>
+        <button id="avatar2_jogador2" onclick="selecionar_avatar2_jogador2()"><img src="assets/image/2.png" alt="" /></button>
+        <button id="avatar3_jogador2" onclick="selecionar_avatar3_jogador2()"><img src="assets/image/3.png" alt="" /></button>
+        <button id="avatar4_jogador2" onclick="selecionar_avatar4_jogador2()"><img src="assets/image/4.png" alt="" /></button>
       </div>
       <h1>Apelido:</h1>
       <input id="input_apelido_jogador2" type="text" />
@@ -54,8 +58,8 @@
       <h1 style="font-size: 70px">=</h1>
     </div>
 
-    <div>
-      <button style="background-color: white; border: none" onclick="cadastrar()">
+    <div class="div_botao_jogar">
+      <button onclick="cadastrar()">
         <a href="jogo.html" style="text-decoration: none">
           <h1 style="font-size: 70px; color: rgb(0, 0, 0); margin: 0">
             JOGAR
@@ -72,11 +76,76 @@
 
 </html>
 <script>
+  var avatar_jogador1;
+  var avatar_jogador2;
+
+  function selecionar_avatar1_jogador1() {
+    avatar_jogador1 = "assets/image/1.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "1";
+    document.getElementById("avatar2_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador1").style.opacity = "0.2";
+  }
+
+  function selecionar_avatar2_jogador1() {
+    avatar_jogador1 = "assets/image/2.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador1").style.opacity = "1";
+    document.getElementById("avatar3_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador1").style.opacity = "0.2";
+  }
+
+  function selecionar_avatar3_jogador1() {
+    avatar_jogador1 = "assets/image/3.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador1").style.opacity = "1";
+    document.getElementById("avatar4_jogador1").style.opacity = "0.2";
+  }
+
+  function selecionar_avatar4_jogador1() {
+    avatar_jogador1 = "assets/image/4.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador1").style.opacity = "1";
+  }
+
+  function selecionar_avatar1_jogador2() {
+    avatar_jogador2 = "assets/image/1.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "1";
+    document.getElementById("avatar2_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador2").style.opacity = "0.2";
+  }
+  function selecionar_avatar2_jogador2() {
+    avatar_jogador2 = "assets/image/2.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador2").style.opacity = "1";
+    document.getElementById("avatar3_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador2").style.opacity = "0.2";
+  }
+  function selecionar_avatar3_jogador2() {
+    avatar_jogador2 = "assets/image/3.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador2").style.opacity = "1";
+    document.getElementById("avatar4_jogador2").style.opacity = "0.2";
+  }
+  function selecionar_avatar4_jogador2() {
+    avatar_jogador2 = "assets/image/4.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador2").style.opacity = "1";
+  }
 
   function cadastrar() {
 
     var apelido_jogador1Var = input_apelido_jogador1.value;
     var apelido_jogador2Var = input_apelido_jogador2.value;
+    var avatar_jogador1Var = avatar_jogador1;
+    var avatar_jogador2Var = avatar_jogador2;
 
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -88,6 +157,8 @@
         // Agora vá para o arquivo routes/usuario.js
         apelido_jogador1Server: apelido_jogador1Var,
         apelido_jogador2Server: apelido_jogador2Var,
+        avatar_jogador1Server: avatar_jogador1Var,
+        avatar_jogador2Server: avatar_jogador2Var,
       }),
     })
       .then(function (resposta) {

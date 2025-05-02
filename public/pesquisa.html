@@ -10,7 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="retornar_dados_afastamento(); retornar_dados_motivo()">
+<body onload="retornar_dados_afastamento(); retornar_dados_motivo(); ; retornar_dados_emocional();">
   <div class="menu">
     <div class="opcoes_menu">
       <a style="text-decoration: underline #f75a5a 4px; color: black" href="pesquisa.html">Você Sabia?</a>
@@ -71,9 +71,11 @@
         <img src="assets/image/eu.jpg" style="width: 350px" alt="" />
       </div>
     </div>
-
-    <div class="grafico"><canvas id="canvas_grafico_afastamento"></canvas></div>
-    <div class="grafico"><canvas id="canvas_grafico_motivo"></canvas></div>
+    <div class="graficos">
+      <div class="grafico-pizza"><canvas id="canvas_grafico_afastamento"></canvas></div>
+      <div class="grafico-barra"><canvas id="canvas_grafico_motivo"></canvas></div>
+      <div class="grafico-pizza"><canvas id="canvas_grafico_emocional"></canvas></div>
+  </div>
 
   </div>
 
@@ -92,10 +94,16 @@
   var percentual_nao_afastamento;
 
   //variaveis para grafico de motivo
-  var bullying = 0;
-  var problema_em_casa = 0;
-  var mau_entendido = 0;
-  var outro = 0;
+  var bullying_motivo = 0;
+  var problema_em_casa_motivo = 0;
+  var mau_entendido_motivo = 0;
+  var outro_motivo = 0;
+
+  //Variaveis para gráfico de emocional
+  var qtd_concordam_emocional = 0;  
+  var qtd_discordam_emocional = 0;
+  var percentual_concordam_emocional;
+  var percentual_discordam_emocional;
 
   function retornar_dados_afastamento() {
     fetch("/grafico_afastamento/retornar", {
@@ -115,6 +123,7 @@
         criar_grafico_afastamento();
       })
   }
+  
   function retornar_dados_motivo() {
     fetch("/grafico_motivo/retornar", {
       method: "GET",
@@ -124,17 +133,36 @@
     })
       .then(resposta => resposta.json())
       .then(data => {
-        bullying = Number(data.bullying);
-        problema_em_casa = Number(data.problema_em_casa);
-        mau_entendido = Number(data.mau_entendido);
-        outro = Number(data.outro);
+        bullying_motivo = Number(data.bullying);
+        problema_em_casa_motivo = Number(data.problema_em_casa);
+        mau_entendido_motivo = Number(data.mau_entendido);
+        outro_motivo = Number(data.outro);
 
-        console.log("Dados recebidos:", bullying, problema_em_casa, mau_entendido, outro);
+        console.log("Dados recebidos:", bullying_motivo, problema_em_casa_motivo, mau_entendido_motivo, outro_motivo);
 
         criar_grafico_motivo();
       })
   }
+  
+  function retornar_dados_emocional() {
+    fetch("/grafico_emocional/retornar", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json())
+      .then(data => {
+        qtd_concordam_emocional = Number(data.qtd_concordam);
+        qtd_discordam_emocional = Number(data.qtd_discordam);
 
+        console.log("Dados recebidos:", qtd_concordam_emocional, qtd_discordam_emocional);
+
+        calculo_percentual_emocional();
+        criar_grafico_emocional();
+      })
+  }
+  
   function calculo_percentual_afastamento() {
     var total = qtd_sim_afastamento + qtd_nao_afastamento;
     if (total === 0) {
@@ -146,6 +174,19 @@
     }
 
     console.log("percentual_sim_afastamento:", percentual_sim_afastamento, "percentual_nao_afastamento:", percentual_nao_afastamento);
+  }
+
+  function calculo_percentual_emocional() {
+    var total = qtd_concordam_emocional + qtd_discordam_emocional;
+    if (total === 0) {
+      percentual_concordam_emocional = 0;
+      percentual_discordam_emocional = 0;
+    } else {
+      percentual_concordam_emocional = (qtd_concordam_emocional / total) * 100;
+      percentual_discordam_emocional = (qtd_discordam_emocional / total) * 100;
+    }
+
+    console.log("percentual_concordam_emocional:", percentual_concordam_emocional, "percentual_discordam_emocional:", percentual_discordam_emocional);
   }
 
   function criar_grafico_afastamento() {
@@ -178,21 +219,48 @@
         datasets: [
           {
             label: "",
-            data: [bullying, problema_em_casa, mau_entendido, outro],
+            data: [bullying_motivo, problema_em_casa_motivo, mau_entendido_motivo, outro_motivo],
             backgroundColor: [
               "rgb(255, 99, 132)",
               "rgb(75, 192, 192)",
               "rgb(255, 205, 86)",
               "rgb(201, 203, 207)",
             ],
-            hoverOffset: 4
+            hoverOffset: 4,
           },
         ],
       },
-      options: {plugins:{legend:{display:false}}}
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
     });
   }
 
+  function criar_grafico_emocional() {
+    const grafico_emocional = document.getElementById("canvas_grafico_emocional");
+    new Chart(grafico_emocional, {
+      type: "pie",
+      data: {
+        labels: ["Concordam", "Discordam"],
+        datasets: [
+          {
+            label: "percentual",
+            data: [percentual_concordam_emocional, percentual_discordam_emocional],
+            backgroundColor: [
+              "rgb(75, 192, 192)",
+              "rgb(255, 99, 132)",
+            ],
+            hoverOffset: 2,
+          },
+        ],
+      },
+    });
+  }
 
 
 </script>

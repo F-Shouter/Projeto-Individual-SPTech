@@ -1,5 +1,9 @@
-.grafico {
+.grafico-pizza {
+    height: 250px;
+}
+.grafico-barra {
     height: 300px;
+    width: 300px;
 }
 .conteudo {
     padding: 0px 80px;
@@ -35,4 +39,9 @@
 .historia strong {
     font-weight: bold;
     color: #6DE1D2 ;
+}
+.graficos{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
 }

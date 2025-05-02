@@ -14,7 +14,7 @@
           <div class="container">
           
             <div class="avatar">
-              <img src="assets/image/1.png" alt="" />
+              <img id="avatar_jogador1" src="" alt="" />
             </div>
             <div class="nome">
                 <h1 style="color: black">Jogador 1</h1>
@@ -25,7 +25,7 @@
           <div class="container" style="background-color: #f75a5a">
           
             <div class="avatar">
-              <img src="assets/image/4.png" alt="" />
+              <img id="avatar_jogador2" src="" alt="" />
             </div>
             <div class="nome">
                 <h1 style="color: black">Jogador 2</h1>
@@ -65,6 +65,8 @@
       // Atualiza os apelidos na página
       document.getElementById("span_jogador1").innerText = data.apelido_jogador1;
       document.getElementById("span_jogador2").innerText = data.apelido_jogador2;
+      document.getElementById("avatar_jogador1").src = data.avatar_jogador1;
+      document.getElementById("avatar_jogador2").src = data.avatar_jogador2;
     })
     .catch(erro => {
       console.log(`#ERRO: ${erro}`);
