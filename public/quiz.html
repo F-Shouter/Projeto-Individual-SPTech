@@ -10,97 +10,295 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="retornar()">
+<body onload="retornar_dados_afastamento(); retornar_dados_motivo(); ; retornar_dados_emocional();">
   <div class="menu">
     <div class="opcoes_menu">
-      <a href="index.html">Você Sabia?</a>
+      <a href="pesquisa.html">Você Sabia?</a>
       <a style="text-decoration: underline #f75a5a 4px; color: black" href="quiz.html">Quiz</a>
       <a href="index.html">JOGO</a>
     </div>
   </div>
 
-  <div class="conteudo">
+  <div class="conteudo" id="div_quiz">
+    <div class="titulo">
+      <h1>Contribua na pesquisa <br> com suas respostas!</h1>
+    </div>
     <div class="container">
       <div class="div_pergunta">
-        <h2>Quando você era criança, houve algum momento em que se afastou de brincar com outras crianças?"</h2>
+        <h2>Quando você era criança, houve algum momento em que se afastou de brincar com outras crianças?</h2>
       </div>
       <div class="div_resposta">
-        <button onclick="responder_sim(); atualizar()">Sim</button>
-        <button onclick="responder_nao(); atualizar()">Não</button>
+        <button onclick="responder_sim(); atualizar_dados_afastamento(); ir_pergunta2()">Sim</button>
+        <button onclick="responder_nao(); atualizar_dados_afastamento(); ir_final()">Não</button>
       </div>
     </div>
   </div>
-  <script>
 
-    var qtd_sim_noBancoVar = 0;
-    var qtd_nao_noBancoVar = 0;
+</html>
+<script>
+  function ir_pergunta2() {
+    div_quiz.innerHTML = `
+    <div class="titulo">
+      <h1>Contribua na pesquisa <br> com suas respostas!</h1>
+    </div>
+      <div class="container">
+          <div class="div_pergunta">
+            <h2>Qual foi o maior motivo?</h2>
+          </div>
+          <div class="div_resposta2">
+            <button onclick="ir_pergunta3(); responder_motivo_bullying(); atualizar_dados_motivo()">Bullying</button>
+            <button onclick="ir_pergunta3(); responder_motivo_problema_em_casa(); atualizar_dados_motivo()">Problemas em casa</button>
+          </div>
+          <div class="div_resposta2">
+            <button onclick="ir_pergunta3(); responder_motivo_mau_entendido(); atualizar_dados_motivo()">Maus entendidos</button>
+            <button onclick="ir_pergunta3(); responder_motivo_outro(); atualizar_dados_motivo()">Outros</button>
+          </div>
+        </div>
+    `;
+  }
+  function ir_pergunta3() {
+    div_quiz.innerHTML = `
+    <div class="titulo">
+      <h1>Contribua na pesquisa <br> com suas respostas!</h1>
+    </div>
+      <div class="container" style="background-color: #f75a5a">
+          <div class="div_pergunta">
+            <h2>Você concorda que aquele isolamento, naquele momento, pode ter te afetado emocionalmente depois que cresceu?</h2>
+          </div>
+          <div class="div_resposta">
+        <button onclick="responder_concordam(); atualizar_dados_emocional(); ir_final()">Sim</button>
+        <button onclick="responder_discordam(); atualizar_dados_emocional(); ir_final()">Não</button>
+      </div>
+        </div>
+    `;
+  }
 
-    function retornar() {
-      fetch("/grafico_afastamento/retornar", { // Faz a requisição ao servidor
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+  // Variáveis para garfico de afastamento 
+  var qtd_sim_afastamento = 0;
+  var qtd_nao_afastamento = 0;
+
+  //variaveis para grafico de motivo
+  var bullying_motivo = 0;
+  var problema_em_casa_motivo = 0;
+  var mau_entendido_motivo = 0;
+  var outro_motivo = 0;
+
+  // Variáveis para grafico de emocional
+  var qtd_concordam_emocional = 0;
+  var qtd_discordam_emocional = 0;
+
+  function retornar_dados_afastamento() {
+    fetch("/grafico_afastamento/retornar", { // Faz a requisição ao servidor
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json()) // Converte a resposta para JSON
+      .then(data => {
+        // Atualiza os apelidos na página
+        qtd_sim_afastamento = Number(data.qtd_sim);
+        qtd_nao_afastamento = Number(data.qtd_nao);
       })
-        .then(resposta => resposta.json()) // Converte a resposta para JSON
-        .then(data => {
-          // Atualiza os apelidos na página
-          qtd_sim_noBancoVar = Number(data.qtd_sim);
-          qtd_nao_noBancoVar = Number(data.qtd_nao);
-        })
-        .catch(erro => {
-          console.log(`#ERRO: ${erro}`);
-        });
-    }
+      .catch(erro => {
+        console.log(`#ERRO: ${erro}`);
+      });
+  }
 
-    function responder_sim() {
-    qtd_sim_noBancoVar++;
-    console.log("qtd_sim_noBancoVar atualizado para:", qtd_sim_noBancoVar);
-}
+  function responder_sim() {
+    qtd_sim_afastamento++;
+    console.log("qtd_sim_afastamento atualizado para:", qtd_sim_afastamento);
+  }
+  function responder_nao() {
+    qtd_nao_afastamento++;
+    console.log("qtd_nao_afastamento atualizado para:", qtd_nao_afastamento);
+  }
 
-    function responder_nao() {
-    qtd_nao_noBancoVar++;
-    console.log("qtd_nao_noBancoVar atualizado para:", qtd_nao_noBancoVar);
-}
-    
-
-
-    function atualizar() {
-      console.log("atualizar() chamado");
-      var qtd_simVar = qtd_sim_noBancoVar;
-      var qtd_naoVar = qtd_nao_noBancoVar;
-
-      fetch("/grafico_afastamento/atualizar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          // crie um atributo que recebe o valor recuperado aqui
-          // Agora vá para o arquivo routes/usuario.js
-          qtd_simServer: qtd_simVar,
-          qtd_naoServer: qtd_naoVar,
-        }),
+  function retornar_dados_motivo() {
+    fetch("/grafico_motivo/retornar", { // Faz a requisição ao servidor
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json()) // Converte a resposta para JSON
+      .then(data => {
+        // Atualiza os apelidos na página
+        bullying_motivo = Number(data.bullying);
+        problema_em_casa_motivo = Number(data.problema_em_casa);
+        mau_entendido_motivo = Number(data.mau_entendido);
+        outro_motivo = Number(data.outro);
       })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
+      .catch(erro => {
+        console.log(`#ERRO: ${erro}`);
+      });
+  }
 
-          if (resposta.ok) {
-            cardErro.style.display = "block";
+  function responder_motivo_bullying() {
+    bullying_motivo++;
+    console.log("bullying_motivo atualizado para:", bullying_motivo);
+  }
+  function responder_motivo_problema_em_casa() {
+    problema_em_casa_motivo++;
+    console.log("problema_em_casa_motivo atualizado para:", problema_em_casa_motivo);
+  }
+  function responder_motivo_mau_entendido() {
+    mau_entendido_motivo++;
+    console.log("mau_entendido_motivo atualizado para:", mau_entendido_motivo);
+  }
+  function responder_motivo_outro() {
+    outro_motivo++;
+    console.log("outro_motivo atualizado para:", outro_motivo);
+  }
 
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            throw "Houve um erro ao tentar realizar o cadastro!";
-          }
-        })
-        .catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
+function retornar_dados_emocional() {
+    fetch("/grafico_emocional/retornar", { // Faz a requisição ao servidor
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json()) // Converte a resposta para JSON
+      .then(data => {
+        // Atualiza os apelidos na página
+        qtd_concordam_emocional = Number(data.qtd_concordam);
+        qtd_discordam_emocional = Number(data.qtd_discordam);
+      })
+      .catch(erro => {
+        console.log(`#ERRO: ${erro}`);
+      });
+  }
+
+  function atualizar_dados_afastamento() {
+    console.log("atualizar() chamado");
+    var qtd_simVar = qtd_sim_afastamento;
+    var qtd_naoVar = qtd_nao_afastamento;
+
+    fetch("/grafico_afastamento/atualizar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        qtd_simServer: qtd_simVar,
+        qtd_naoServer: qtd_naoVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          limparFormulario();
           finalizarAguardar();
-        });
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
 
-      console.log("qtd_sim_noBancoVar:", qtd_sim_noBancoVar);
-      console.log("qtd_nao_noBancoVar:", qtd_nao_noBancoVar);
-      return false;
-    }
-  </script>
+    console.log("qtd_sim_afastamento:", qtd_sim_afastamento);
+    console.log("qtd_nao_afastamento:", qtd_nao_afastamento);
+    return false;
+  }
+
+  function atualizar_dados_motivo() {
+    console.log("atualizar() chamado");
+    var bullyingVar = bullying_motivo;
+    var problema_em_casaVar = problema_em_casa_motivo;
+    var mau_entendidoVar = mau_entendido_motivo;
+    var outroVar = outro_motivo;
+
+    fetch("/grafico_motivo/atualizar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        bullyingServer: bullyingVar,
+        problema_em_casaServer: problema_em_casaVar,
+        mau_entendidoServer: mau_entendidoVar,
+        outroServer: outroVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    console.log("bullying_motivo:", bullying_motivo);
+    console.log("problema_em_casa_motivo:", problema_em_casa_motivo);
+    console.log("mau_entendido_motivo:", mau_entendido_motivo);
+    console.log("outro_motivo:", outro_motivo);
+    return false;
+  }
+
+function atualizar_dados_emocional() {
+    console.log("atualizar() chamado");
+    var qtd_concordamVar = qtd_concordam_emocional;
+    var qtd_discordamVar = qtd_discordam_emocional;
+
+    fetch("/grafico_emocional/atualizar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        qtd_concordamServer: qtd_concordamVar,
+        qtd_discordamServer: qtd_discordamVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    console.log("qtd_concordam_emocional:", qtd_concordam_emocional);
+    console.log("qtd_discordam_emocional:", qtd_discordam_emocional);
+    return false;
+  }
+
+  function responder_concordam() {
+    qtd_concordam_emocional++;
+    console.log("qtd_concordam_emocional atualizado para:", qtd_concordam_emocional);
+  }
+  function responder_discordam() {
+    qtd_discordam_emocional++;
+    console.log("qtd_discordam_emocional atualizado para:", qtd_discordam_emocional);
+  }
+
+</script>

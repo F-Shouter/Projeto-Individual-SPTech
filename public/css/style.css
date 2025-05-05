@@ -7,8 +7,9 @@ body {
 }
 .menu {
   height: 60px;
-  background-color: #ffd63a;
+  background-color: #FFD63A;
   border-radius: 0px 0px 50px 50px;
+  border-top: 1px dashed #FFD63A;
   text-align: center;
   display: flex;
   align-items: center;

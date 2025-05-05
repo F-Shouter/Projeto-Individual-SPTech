@@ -1,35 +1,57 @@
 .conteudo {
     display: flex;
-    align-content: center;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
+    height: 550px;
 }
 .container {
-    margin: 70px;
-    width: 600px;
-    height: 275px;
-    border-radius: 20px;
+    width: 700px;
+    height: 400px;
     background-color: #F75A5A;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
 }
 .container .div_pergunta {
-    margin: 80px 30px 0px 30px;
+    margin: 40px;
     color: white;
+    font-size: 20px;
+}
+.div_pergunta h2 {
+    margin: none;
 }
 .container .div_resposta {
     display: flex;
     flex-direction: row;
     width: 520px;
-    margin: 40px;
     justify-content: center;
     gap: 80px;
 }
 .div_resposta button {
-    margin: px;
     width: 100px;
     height: 50px;
-    border-radius: 10px;
-    font-size: 25px;
-    background-color: rgb(43, 43, 43);
-    color: white;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.452);
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
     border-color: white;
+    color: rgb(0, 0, 0);
+}
+.div_resposta2 button {
+    margin: 20px;
+    width: 270px;
+    height: 50px;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.452);
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    border-color: white;
+    color: rgb(0, 0, 0);
+}
+.titulo {
+    margin-right: 80px;
+    font-size: 22px;
 }

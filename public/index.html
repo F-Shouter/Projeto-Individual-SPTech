@@ -22,7 +22,7 @@
   <div class="conteudo" style="height: 550px;">
     <div class="container">
       <h1 style="color: black">Jogador 1</h1>
-      <h1>Escolha seu avatar!</h1>
+      <span>(Escolha seu avatar)</span>
       <div class="avatar">
         <button id="avatar1_jogador1" onclick="selecionar_avatar1_jogador1()"><img src="assets/image/1.png"
             alt="" /></button>
@@ -33,25 +33,34 @@
         <button id="avatar4_jogador1" onclick="selecionar_avatar4_jogador1()"><img src="assets/image/4.png"
             alt="" /></button>
       </div>
-      <h1>Apelido:</h1>
-      <input id="input_apelido_jogador1" type="text" />
+      <div class="apelido1">
+        <h1>Apelido:</h1>
+        <input id="input_apelido_jogador1" type="text" />
+      </div>
     </div>
 
     <div>
-      <h1 style="font-size: 70px">VS</h1>
+      <h1 style="font-size: 70px">+</h1>
     </div>
 
-    <div class="container" style="background-color: #f75a5a">
+    <div class="container container2">
       <h1 style="color: black">Jogador 2</h1>
-      <h1>Escolha seu avatar!</h1>
+      <span>(Escolha seu avatar)</span>
       <div class="avatar">
-        <button id="avatar1_jogador2" onclick="selecionar_avatar1_jogador2()"><img src="assets/image/1.png" alt="" /></button>
-        <button id="avatar2_jogador2" onclick="selecionar_avatar2_jogador2()"><img src="assets/image/2.png" alt="" /></button>
-        <button id="avatar3_jogador2" onclick="selecionar_avatar3_jogador2()"><img src="assets/image/3.png" alt="" /></button>
-        <button id="avatar4_jogador2" onclick="selecionar_avatar4_jogador2()"><img src="assets/image/4.png" alt="" /></button>
+        <button id="avatar1_jogador2" onclick="selecionar_avatar1_jogador2()"><img src="assets/image/1.png"
+            alt="" /></button>
+        <button id="avatar2_jogador2" onclick="selecionar_avatar2_jogador2()"><img src="assets/image/2.png"
+            alt="" /></button>
+        <button id="avatar3_jogador2" onclick="selecionar_avatar3_jogador2()"><img src="assets/image/3.png"
+            alt="" /></button>
+        <button id="avatar4_jogador2" onclick="selecionar_avatar4_jogador2()"><img src="assets/image/4.png"
+            alt="" /></button>
       </div>
-      <h1>Apelido:</h1>
-      <input id="input_apelido_jogador2" type="text" />
+
+      <div class="apelido2">
+        <h1>Apelido:</h1>
+        <input id="input_apelido_jogador2" type="text" />
+      </div>
     </div>
 
     <div>
@@ -61,6 +70,7 @@
     <div class="div_botao_jogar">
       <button onclick="cadastrar()">
         <a href="jogo.html" style="text-decoration: none">
+          <span style="font-size: 20px; text-decoration: none; color: black;">(clique aqui)</span>
           <h1 style="font-size: 70px; color: rgb(0, 0, 0); margin: 0">
             JOGAR
           </h1>
@@ -82,61 +92,61 @@
   function selecionar_avatar1_jogador1() {
     avatar_jogador1 = "assets/image/1.png";
     document.getElementById("avatar1_jogador1").style.opacity = "1";
-    document.getElementById("avatar2_jogador1").style.opacity = "0.2";
-    document.getElementById("avatar3_jogador1").style.opacity = "0.2";
-    document.getElementById("avatar4_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador1").style.opacity = "0";
+    document.getElementById("avatar3_jogador1").style.opacity = "0";
+    document.getElementById("avatar4_jogador1").style.opacity = "0";
   }
 
   function selecionar_avatar2_jogador1() {
     avatar_jogador1 = "assets/image/2.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar1_jogador1").style.opacity = "0";
     document.getElementById("avatar2_jogador1").style.opacity = "1";
-    document.getElementById("avatar3_jogador1").style.opacity = "0.2";
-    document.getElementById("avatar4_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador1").style.opacity = "0";
+    document.getElementById("avatar4_jogador1").style.opacity = "0";
   }
 
   function selecionar_avatar3_jogador1() {
     avatar_jogador1 = "assets/image/3.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "0.2";
-    document.getElementById("avatar2_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar1_jogador1").style.opacity = "0";
+    document.getElementById("avatar2_jogador1").style.opacity = "0";
     document.getElementById("avatar3_jogador1").style.opacity = "1";
-    document.getElementById("avatar4_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador1").style.opacity = "0";
   }
 
   function selecionar_avatar4_jogador1() {
     avatar_jogador1 = "assets/image/4.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "0.2";
-    document.getElementById("avatar2_jogador1").style.opacity = "0.2";
-    document.getElementById("avatar3_jogador1").style.opacity = "0.2";
+    document.getElementById("avatar1_jogador1").style.opacity = "0";
+    document.getElementById("avatar2_jogador1").style.opacity = "0";
+    document.getElementById("avatar3_jogador1").style.opacity = "0";
     document.getElementById("avatar4_jogador1").style.opacity = "1";
   }
 
   function selecionar_avatar1_jogador2() {
     avatar_jogador2 = "assets/image/1.png";
     document.getElementById("avatar1_jogador2").style.opacity = "1";
-    document.getElementById("avatar2_jogador2").style.opacity = "0.2";
-    document.getElementById("avatar3_jogador2").style.opacity = "0.2";
-    document.getElementById("avatar4_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar2_jogador2").style.opacity = "0";
+    document.getElementById("avatar3_jogador2").style.opacity = "0";
+    document.getElementById("avatar4_jogador2").style.opacity = "0";
   }
   function selecionar_avatar2_jogador2() {
     avatar_jogador2 = "assets/image/2.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar1_jogador2").style.opacity = "0";
     document.getElementById("avatar2_jogador2").style.opacity = "1";
-    document.getElementById("avatar3_jogador2").style.opacity = "0.2";
-    document.getElementById("avatar4_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar3_jogador2").style.opacity = "0";
+    document.getElementById("avatar4_jogador2").style.opacity = "0";
   }
   function selecionar_avatar3_jogador2() {
     avatar_jogador2 = "assets/image/3.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "0.2";
-    document.getElementById("avatar2_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar1_jogador2").style.opacity = "0";
+    document.getElementById("avatar2_jogador2").style.opacity = "0";
     document.getElementById("avatar3_jogador2").style.opacity = "1";
-    document.getElementById("avatar4_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar4_jogador2").style.opacity = "0";
   }
   function selecionar_avatar4_jogador2() {
     avatar_jogador2 = "assets/image/4.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "0.2";
-    document.getElementById("avatar2_jogador2").style.opacity = "0.2";
-    document.getElementById("avatar3_jogador2").style.opacity = "0.2";
+    document.getElementById("avatar1_jogador2").style.opacity = "0";
+    document.getElementById("avatar2_jogador2").style.opacity = "0";
+    document.getElementById("avatar3_jogador2").style.opacity = "0";
     document.getElementById("avatar4_jogador2").style.opacity = "1";
   }
 
