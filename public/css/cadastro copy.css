@@ -1,58 +1,63 @@
 @keyframes sobeDesce_botaoJogar {
-  0% { top: 210px; }
-  100% { top: 300px; }
+  0% { top: 440px; }
+  100% { top: 480px; }
 }
 
 @keyframes sobeDesce_avatar {
-  0% { top: -20px; }
-  100% { top: 50px; }
+  0% { right: 0px; }
+  100% { right: 30px; }
 }
-
+.conteudo {
+  background-image: url(/public/assets/image/fundo_cadastro.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
 img {
   width: 130px;
   height: 130px;
 }
-.conteudo {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
 .container {
-  width: 430px;
+  margin-left: 570px;
+  padding-top: 1px;
+  width: 730px;
   height: 420px;
-  border-radius: 30px;
-  text-align: center;
-  color: black;
-  background-color: #6DE1D2;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  gap: 50px;
 }
-.container2 {
-  background-color: #F75A5A;
-}
-.avatar {
+.jogador1, .jogador2{
   height: 220px;
   display: flex;
   align-content: center;
+  align-items: center;
   justify-content: space-evenly;
-  flex-direction: row;
+  flex-direction: column;
+  margin: 15px;
 }
 .container input {
-  width: 250px;
+  width: 150px;
   height: 40px;
   align-self: center;
   border-radius: 10px;
-  border-color: #000000;
+  border-color: #ffffff;
   margin-bottom: 0px;
   font-size: 30px;
   text-align: center;
-  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.5);
+  background: none;
+  border: none;
+  margin-left: 130px;
 }
-.avatar button {
+.container button {
   width: 100px;
   height: 100px;
   background: none;
   border: none;
   cursor: pointer;
-  filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.5));
   position: relative; 
   animation: sobeDesce_avatar 2s infinite alternate; 
 
@@ -61,10 +66,10 @@ img {
   animation: sobeDesce_avatar 2s infinite alternate-reverse;
 }
 #avatar2_jogador1, #avatar2_jogador2{
-  animation: sobeDesce_avatar 2.5s infinite alternate-reverse;
+  animation: sobeDesce_avatar 2s infinite alternate-reverse;
 }
 #avatar3_jogador1, #avatar3_jogador2{
-  animation: sobeDesce_avatar 2.5s infinite alternate;
+  animation: sobeDesce_avatar 2s infinite alternate;
 }
 #avatar4_jogador1, #avatar4_jogador2{
   animation: sobeDesce_avatar 2s infinite alternate;
@@ -74,6 +79,7 @@ img {
 }
 
 .div_botao_jogar{
+  margin-left: 830px;
   width: 220px;
   height: 80px;
   display: flex;
@@ -82,10 +88,16 @@ img {
 
 }
 .div_botao_jogar button {
-  background: none;
-  border: none; 
+ background-image: url(/public/assets/image/botao_jogar.png);
+  width: 245px;
+  height: 75px;
   position: absolute; 
-  /* animation: sobeDesce_botaoJogar 2s infinite alternate; */
+  background-color: transparent;
+  border: none;
+   animation: sobeDesce_botaoJogar 2s infinite alternate; 
+}
+.div_botao_jogar button:hover {
+  filter: drop-shadow(10px 10px 5px #ffe600);
 }
 .apelido1 {
   display: flex;

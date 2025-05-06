@@ -8,16 +8,17 @@
 .container {
     width: 700px;
     height: 400px;
-    background-color: #F75A5A;
-    text-align: left;
+    background-color: #ffffff;
+    text-align: justify;
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
+    justify-content: center;
 }
 .container .div_pergunta {
-    margin: 40px;
-    color: white;
+    margin: 0px 80px;
+    color: rgb(0, 0, 0);
     font-size: 20px;
 }
 .div_pergunta h2 {
@@ -37,7 +38,7 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.452);
     font-size: 30px;
     background-color: rgb(255, 255, 255);
-    border-color: white;
+    border-color: rgb(0, 0, 0);
     color: rgb(0, 0, 0);
 }
 .div_resposta2 button {
@@ -52,6 +53,12 @@
     color: rgb(0, 0, 0);
 }
 .titulo {
-    margin-right: 80px;
+    width: 550px;
+    height: 400px;
+    background-color: #F75A5A;
+    color: white;
+    text-align: center;
+    align-items: center;
+    align-content: center;
     font-size: 22px;
 }

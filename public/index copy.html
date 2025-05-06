@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Draw With Me</title>
+  <link rel="stylesheet" href="css/cadastro copy.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="./js/sessao.js"></script>
+</head>
+
+<body>
+  <div class="menu">
+    <div class="opcoes_menu">
+      <a href="pesquisa.html">Você Sabia?</a>
+      <a href="quiz.html">Quiz</a>
+      <a style="text-decoration: underline #f75a5a 4px; color: #f75a5a" href="index.html">JOGO</a>
+    </div>
+  </div>
+
+  <div class="conteudo" style="height: 550px;">
+    <div class="container">
+
+      <div class="jogador1">
+        <input id="input_apelido_jogador1" type="text" placeholder="digite aqui"/>
+        <div class="avatar">
+          <button id="avatar1_jogador1" onclick="selecionar_avatar1_jogador1()"><img src="assets/image/1.png"
+              alt="" /></button>
+          <button id="avatar2_jogador1" onclick="selecionar_avatar2_jogador1()"><img src="assets/image/2.png"
+              alt="" /></button>
+        </div>
+      </div>
+
+      <div class="jogador2">
+        <input id="input_apelido_jogador2" type="text" placeholder="digite aqui"/>
+        <div class="avatar">
+          <button id="avatar3_jogador2" onclick="selecionar_avatar3_jogador2()"><img src="assets/image/3.png"
+              alt="" /></button>
+          <button id="avatar4_jogador2" onclick="selecionar_avatar4_jogador2()"><img src="assets/image/4.png"
+              alt="" /></button>
+        </div>
+      </div>
+
+      
+
+    </div>
+
+    <div class="div_botao_jogar">
+      <button onclick="cadastrar()">
+        <a href="jogo.html" style="text-decoration: none">
+        </a>
+      </button>
+    </div>
+      
+        
+        
+
+
+    
+  </div>
+
+  <div class="rodape">
+    <p>Projeto dedicado pela aluna, Anne Y. Yamasaki - 1ADS/2025</p>
+  </div>
+</body>
+
+</html>
+<script>
+  var avatar_jogador1;
+  var avatar_jogador2;
+
+  function selecionar_avatar1_jogador1() {
+    avatar_jogador1 = "assets/image/1.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "1";
+    document.getElementById("avatar2_jogador1").style.opacity = "0";
+    document.getElementById("avatar3_jogador1").style.opacity = "0";
+    document.getElementById("avatar4_jogador1").style.opacity = "0";
+  }
+
+  function selecionar_avatar2_jogador1() {
+    avatar_jogador1 = "assets/image/2.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "0";
+    document.getElementById("avatar2_jogador1").style.opacity = "1";
+    document.getElementById("avatar3_jogador1").style.opacity = "0";
+    document.getElementById("avatar4_jogador1").style.opacity = "0";
+  }
+
+  function selecionar_avatar3_jogador1() {
+    avatar_jogador1 = "assets/image/3.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "0";
+    document.getElementById("avatar2_jogador1").style.opacity = "0";
+    document.getElementById("avatar3_jogador1").style.opacity = "1";
+    document.getElementById("avatar4_jogador1").style.opacity = "0";
+  }
+
+  function selecionar_avatar4_jogador1() {
+    avatar_jogador1 = "assets/image/4.png";
+    document.getElementById("avatar1_jogador1").style.opacity = "0";
+    document.getElementById("avatar2_jogador1").style.opacity = "0";
+    document.getElementById("avatar3_jogador1").style.opacity = "0";
+    document.getElementById("avatar4_jogador1").style.opacity = "1";
+  }
+
+  function selecionar_avatar1_jogador2() {
+    avatar_jogador2 = "assets/image/1.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "1";
+    document.getElementById("avatar2_jogador2").style.opacity = "0";
+    document.getElementById("avatar3_jogador2").style.opacity = "0";
+    document.getElementById("avatar4_jogador2").style.opacity = "0";
+  }
+  function selecionar_avatar2_jogador2() {
+    avatar_jogador2 = "assets/image/2.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "0";
+    document.getElementById("avatar2_jogador2").style.opacity = "1";
+    document.getElementById("avatar3_jogador2").style.opacity = "0";
+    document.getElementById("avatar4_jogador2").style.opacity = "0";
+  }
+  function selecionar_avatar3_jogador2() {
+    avatar_jogador2 = "assets/image/3.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "0";
+    document.getElementById("avatar2_jogador2").style.opacity = "0";
+    document.getElementById("avatar3_jogador2").style.opacity = "1";
+    document.getElementById("avatar4_jogador2").style.opacity = "0";
+  }
+  function selecionar_avatar4_jogador2() {
+    avatar_jogador2 = "assets/image/4.png";
+    document.getElementById("avatar1_jogador2").style.opacity = "0";
+    document.getElementById("avatar2_jogador2").style.opacity = "0";
+    document.getElementById("avatar3_jogador2").style.opacity = "0";
+    document.getElementById("avatar4_jogador2").style.opacity = "1";
+  }
+
+  function cadastrar() {
+
+    var apelido_jogador1Var = input_apelido_jogador1.value;
+    var apelido_jogador2Var = input_apelido_jogador2.value;
+    var avatar_jogador1Var = avatar_jogador1;
+    var avatar_jogador2Var = avatar_jogador2;
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        apelido_jogador1Server: apelido_jogador1Var,
+        apelido_jogador2Server: apelido_jogador2Var,
+        avatar_jogador1Server: avatar_jogador1Var,
+        avatar_jogador2Server: avatar_jogador2Var,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          setTimeout(() => {
+            window.location = "jogo.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>

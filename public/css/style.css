@@ -7,14 +7,12 @@ body {
 }
 .menu {
   height: 60px;
-  background-color: #FFD63A;
-  border-radius: 0px 0px 50px 50px;
-  border-top: 1px dashed #FFD63A;
+  background-color: #ffffff;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .opcoes_menu {
   margin-left: 70px;
@@ -24,13 +22,12 @@ body {
 }
 .opcoes_menu a {
   text-decoration: none;
-  color: #0000005e;
+  color: #000000;
   font-size: 25px;
   font-weight: 700;
 }
 .conteudo {
   height: 610px;
-  background-color: white;
 }
 .rodape {
   height: 50px;
