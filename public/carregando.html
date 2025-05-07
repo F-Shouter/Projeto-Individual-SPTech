@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Draw With Me</title>
+  <link rel="stylesheet" href="css/cadastro.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="./js/sessao.js"></script>
+</head>
+
+<body>
+  <div class="menu">
+    <div class="opcoes_menu">
+      <a href="pesquisa.html">Você Sabia?</a>
+      <a href="quiz.html">Quiz</a>
+      <a style="text-decoration: underline #f75a5a 4px; color: black" href="index.html">JOGO</a>
+    </div>
+  </div>
+
+   
+  
+
+  <div class="conteudo" id="div_conteudo" style="height: 550px;">
+    <div id="div_carregando"> 
+        <div class="carregando"></div>
+      </div>
+    </div>
+
+  <div class="rodape">
+    <p>Projeto dedicado pela aluna, Anne Y. Yamasaki - 1ADS/2025</p>
+  </div>
+</body>
+
+</html>
+<script>
+  
+
+  function mostrarDivCarregando() {
+    var div = document.getElementById('div_carregando');
+    div.style.display = "block";    
+    document.getElementById("div_conteudo").style.filter = "blur(5px)";
+
+  }
+  
+
+  function esconderDivCarregando() {
+  var div = document.getElementById('div_carregando'); 
+  div.style.display = "none";
+}
+
+
+  
+
+  function cadastrar() {
+  
+
+
+    
+
+    var apelido_jogador1Var = input_apelido_jogador1.value;
+    var apelido_jogador2Var = input_apelido_jogador2.value;
+    var avatar_jogador1Var = avatar_jogador1;
+    var avatar_jogador2Var = avatar_jogador2;
+
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        apelido_jogador1Server: apelido_jogador1Var,
+        apelido_jogador2Server: apelido_jogador2Var,
+        avatar_jogador1Server: avatar_jogador1Var,
+        avatar_jogador2Server: avatar_jogador2Var,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          setTimeout(() => {
+            window.location = "jogo.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>

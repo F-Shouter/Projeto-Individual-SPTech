@@ -19,7 +19,12 @@
     </div>
   </div>
 
-  <div class="conteudo" style="height: 550px;">
+  <div id="div_carregando" style="display: none;">
+    <div class="carregando"><img id="img_carregador" src="/public/assets/image/carregando.gif" alt=""></div>
+  </div>
+  
+
+  <div class="conteudo" id="div_conteudo" style="height: 550px;">
     <div class="container">
       <h1 style="color: black">Jogador 1</h1>
       <span>(Escolha seu avatar)</span>
@@ -69,13 +74,10 @@
 
     <div class="div_botao_jogar">
       <button onclick="cadastrar()">
-        <a href="jogo.html" style="text-decoration: none">
-          <span style="font-size: 20px; text-decoration: none; color: black;">(clique aqui)</span>
-          <h1 style="font-size: 70px; color: rgb(0, 0, 0); margin: 0">
-            JOGAR
-          </h1>
-        </a>
+        <span style="font-size: 20px; text-decoration: none; color: black;">(clique aqui)</span>
+        <h1 style="font-size: 70px; color: rgb(0, 0, 0); margin: 0">JOGAR</h1>
       </button>
+      
     </div>
   </div>
 
@@ -150,7 +152,21 @@
     document.getElementById("avatar4_jogador2").style.opacity = "1";
   }
 
+  function mostrarDivCarregando() {
+    var div = document.getElementById('div_carregando');
+    div.style.display = "block";    
+  }  
+
   function cadastrar() {
+    document.getElementById("div_conteudo").style.filter = "blur(3px)";
+    mostrarDivCarregando();
+    
+
+    setTimeout(() => {
+  window.location = "jogo.html";
+}, 30000);
+
+    
 
     var apelido_jogador1Var = input_apelido_jogador1.value;
     var apelido_jogador2Var = input_apelido_jogador2.value;

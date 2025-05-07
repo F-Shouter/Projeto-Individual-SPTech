@@ -103,3 +103,53 @@ img {
   justify-items: center;
   gap: 10px;
 }
+
+@keyframes vir_para_direita {
+  0% {
+    transform: translateX(-800px);
+  }
+  100% {
+    transform: translateX(-80px);
+  }
+}
+
+@keyframes transformar {
+  0% {
+    background: url(/public/assets/image/carregando1.png);
+    background-size: cover;
+  }
+  30% {
+    background: url(/public/assets/image/carregando2.png);
+    background-size: cover;
+  }
+  60% {
+    background: url(/public/assets/image/carregando3.png);
+    background-size: cover;
+  }
+  100% {
+    background: url(/public/assets/image/carregando4.png);
+    background-size: cover;
+  }
+}
+
+.carregando {
+  z-index: 1; 
+  position: absolute;
+  width: 680px;
+  height: 430px; 
+  margin-top: 40px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.219);
+  border-radius: 0px 0px 0px 0px;
+  background: url(/public/assets/image/carregando1.png);
+    background-size: cover;
+    animation: 
+    transformar 4s ease alternate infinite,
+    vir_para_direita 0.8s ease-out forwards;  
+}
+
+#img_carregador {
+  width: 180px;
+  height: 180px;
+  margin-top: 130px;
+  margin-left: 510px;
+}
