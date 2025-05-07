@@ -9,7 +9,7 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 });
 
-//Retornando os dados do banco e direcionando para a função retornar de jogo.html
+//Retornando os dados do banco e direcionando para a função retornar em jogo.html
 router.get("/retornar", function (req, res) {
     usuarioModel.retornar(req) 
         .then(resultado => { 
