@@ -4,7 +4,7 @@ function cadastrar(apelido_jogador1, apelido_jogador2, avatar_jogador1, avatar_j
     var instrucaoSql = `
         INSERT INTO usuario (apelido_jogador1, apelido_jogador2, avatar_jogador1, avatar_jogador2)
         VALUES ('${apelido_jogador1}','${apelido_jogador2}', '${avatar_jogador1}', '${avatar_jogador2}');
-    `;
+    `; // Inserir dados no banco
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -12,7 +12,7 @@ function cadastrar(apelido_jogador1, apelido_jogador2, avatar_jogador1, avatar_j
 function retornar() {
     var instrucaoSql = `
       SELECT apelido_jogador1, apelido_jogador2, avatar_jogador1, avatar_jogador2 FROM usuario 
-        ORDER BY id DESC LIMIT 1;`; // Busca o último registro
+        ORDER BY id DESC LIMIT 1;`; // Busca o último registro para função retornar
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
   }
