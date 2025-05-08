@@ -128,38 +128,38 @@ img {
 
 @keyframes transformar {
   0% {
-    background: url(/public/assets/image/carregando1.png);
+    background: url(../assets/image/carregando1.png);
     background-size: cover;
   }
   30% {
-    background: url(/public/assets/image/carregando2.png);
+    background: url(../assets/image/carregando2.png);
     background-size: cover;
   }
   60% {
-    background: url(/public/assets/image/carregando3.png);
+    background: url(../assets/image/carregando3.png);
     background-size: cover;
   }
   100% {
-    background: url(/public/assets/image/carregando4.png);
+    background: url(../assets/image/carregando4.png);
     background-size: cover;
   }
 }
 
 @keyframes transformar_eu {
   0% {
-    background: url(/public/assets/image/eu1.png);
+    background: url(../assets/image/eu1.png);
     background-size: cover;
   }
   30% {
-    background: url(/public/assets/image/eu2.png);
+    background: url(../assets/image/eu2.png);
     background-size: cover;
   }
   60% {
-    background: url(/public/assets/image/eu3.png);
+    background: url(../assets/image/eu3.png);
     background-size: cover;
   }
   100% {
-    background: url(/public/assets/image/eu4.png);
+    background: url(../assets/image/eu4.png);
     background-size: cover;
   }
 }
@@ -173,7 +173,7 @@ img {
   margin-top: 40px;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.219);
   border-radius: 0px 0px 0px 0px;
-  background: url(/public/assets/image/carregando1.png);
+  background: url(../assets/image/carregando1.png);
     background-size: cover;
     animation: 
     transformar 4s ease alternate infinite,
@@ -187,7 +187,7 @@ img {
   height: 700px; 
   margin-left: 810px;
   border-radius: 0px 0px 0px 0px;
-  background: url(/public/assets/image/eu1.png);
+  background: url(../assets/image/eu1.png);
     background-size: cover;
     animation: 
     transformar_eu 2s ease alternate infinite,
