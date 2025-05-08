@@ -21,8 +21,9 @@
 
   <div id="div_carregando" style="display: none;">
     <div class="carregando"><img id="img_carregador" src="/public/assets/image/carregando.gif" alt=""></div>
+    <div class="eu_carregando"></div>
+
   </div>
-  
 
   <div class="conteudo" id="div_conteudo" style="height: 550px;">
     <div class="container">
@@ -74,10 +75,10 @@
 
     <div class="div_botao_jogar">
       <button onclick="cadastrar()">
-        <span style="font-size: 20px; text-decoration: none; color: black;">(clique aqui)</span>
         <h1 style="font-size: 70px; color: rgb(0, 0, 0); margin: 0">JOGAR</h1>
+        <span style="font-size: 20px; text-decoration: none; color: black;">(clique aqui)</span>
       </button>
-      
+
     </div>
   </div>
 
@@ -153,20 +154,26 @@
   }
 
   function mostrarDivCarregando() {
-    var div = document.getElementById('div_carregando');
-    div.style.display = "block";    
-  }  
+    var divCarregando = document.getElementById('div_carregando');
+    var euCarregando = document.querySelector('.eu_carregando');
 
-  function cadastrar() {
-    document.getElementById("div_conteudo").style.filter = "blur(3px)";
-    mostrarDivCarregando();
-    
+    divCarregando.style.display = "block";
+    euCarregando.style.display = "none";
 
     setTimeout(() => {
-  window.location = "jogo.html";
-}, 30000);
+      euCarregando.style.display = "block";
+    }, 5000);
+  }
 
+
+  function cadastrar() {
     
+    document.getElementById("div_conteudo").style.filter = "blur(2px)";
+    document.getElementById("div_conteudo").style.opacity = "0.1";
+    mostrarDivCarregando();
+    setTimeout(() => {
+      window.location = "jogo.html";
+    }, 10000);
 
     var apelido_jogador1Var = input_apelido_jogador1.value;
     var apelido_jogador2Var = input_apelido_jogador2.value;

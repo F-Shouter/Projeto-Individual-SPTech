@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 @keyframes sobeDesce_botaoJogar {
   0% { top: 210px; }
   100% { top: 300px; }
@@ -85,7 +89,6 @@ img {
   background: none;
   border: none; 
   position: absolute; 
-  /* animation: sobeDesce_botaoJogar 2s infinite alternate; */
 }
 .apelido1 {
   display: flex;
@@ -113,6 +116,16 @@ img {
   }
 }
 
+@keyframes vir_para_cima {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+
 @keyframes transformar {
   0% {
     background: url(/public/assets/image/carregando1.png);
@@ -132,6 +145,26 @@ img {
   }
 }
 
+@keyframes transformar_eu {
+  0% {
+    background: url(/public/assets/image/eu1.png);
+    background-size: cover;
+  }
+  30% {
+    background: url(/public/assets/image/eu2.png);
+    background-size: cover;
+  }
+  60% {
+    background: url(/public/assets/image/eu3.png);
+    background-size: cover;
+  }
+  100% {
+    background: url(/public/assets/image/eu4.png);
+    background-size: cover;
+  }
+}
+
+
 .carregando {
   z-index: 1; 
   position: absolute;
@@ -145,6 +178,20 @@ img {
     animation: 
     transformar 4s ease alternate infinite,
     vir_para_direita 0.8s ease-out forwards;  
+}
+
+.eu_carregando {
+  z-index: 2; 
+  position: absolute;
+  width: 590px;
+  height: 700px; 
+  margin-left: 810px;
+  border-radius: 0px 0px 0px 0px;
+  background: url(/public/assets/image/eu1.png);
+    background-size: cover;
+    animation: 
+    transformar_eu 2s ease alternate infinite,
+    vir_para_cima 0.8s ease-out forwards;  
 }
 
 #img_carregador {
