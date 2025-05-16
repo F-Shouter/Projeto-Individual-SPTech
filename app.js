@@ -1,5 +1,5 @@
-var ambiente_processo = 'desenvolvimento'; //ambiente VIRTUAL de desenvolvimento
-// var caminho_env = '.env.dev'; //ambiente LOCAL de desenvolvimento
+var ambiente_processo = 'desenvolvimento'; 
+// var caminho_env = '.env.dev'; 
 
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 require("dotenv").config({ path: caminho_env });
