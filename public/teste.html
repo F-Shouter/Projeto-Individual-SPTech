@@ -8,35 +8,70 @@
 </head>
 <body>
     <div class="master">
-        <div class="form">
-            <div class="espaco_cadastro">
-                <div class="espaco_jogador1">
+        <div class="form" id="form">
+            <div class="espaco_cadastro" id="espaco_cadastro">
+                <div class="espaco_jogador1" id="espaco_jogador1">
                     <h2>Jogador 1</h2>
                     <p>Escolha seu avatar:</p>
                     <div class="espaco_avatar">
-                        <button></button>
-                        <button></button>
-                        <button></button>
+                        <button class="btn_avatar"></button>
+                        <button class="btn_avatar"></button>
+                        <button class="btn_avatar"></button>
                     </div>
                     <p>Seu apelido:</p>
-                    <input type="text" id="input">
+                    <input type="text" id="input" placeholder="Digite seu apelido">
                 </div>
-                <div class="espaco_jogador2">
+                <div class="espaco_jogador2" id="espaco_jogador2">
                     <h2>Jogador 2</h2>
                     <p>Escolha seu avatar:</p>
                     <div class="espaco_avatar">
-                        <button></button>
-                        <button></button>
-                        <button></button>
+                        <button class="btn_avatar"></button>
+                        <button class="btn_avatar"></button>
+                        <button class="btn_avatar"></button>
                     </div>
                     <p>Seu apelido:</p>
-                    <input type="text" id="input">
+                    <input type="text" id="input" placeholder="Digite seu apelido">
                 </div>
             </div>
+
+            <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
+                <div class="imagem_jogador1" style="display: none;" id="imagem_jogador1"></div>
+                <div class="imagem_jogador2" style="display: none;" id="imagem_jogador2"></div>
+            </div>
+
             <div class="espaco_botao">
-                <button>Começar a Jogar!</button>
+                <button onclick="comecar_jogo()">Começar a Jogar!</button>
             </div>
         </div>
     </div>
 </body>
 </html>
+<script>
+    function comecar_jogo() {
+        var form = document.getElementById('form');
+        var espaco_jogador1 = document.getElementById('espaco_jogador1');
+        var espaco_jogador2 = document.getElementById('espaco_jogador2');
+        var imagem_jogador1 = document.getElementById('imagem_jogador1');
+        var imagem_jogador2 = document.getElementById('imagem_jogador2');
+        var espaco_cadastro = document.getElementById('espaco_cadastro');
+        var espaco_jogo = document.getElementById('espaco_jogo');
+        
+        form.classList.add('expandir');
+        espaco_jogador1.classList.add('sair_para_esquerda');
+        espaco_jogador2.classList.add('sair_para_direita');
+        imagem_jogador1.style.display = 'block';
+        imagem_jogador2.style.display = 'block';
+        
+        
+
+        setTimeout(function() {
+        espaco_cadastro.style.display = 'none'; 
+        espaco_jogo.style.display = 'flex';          
+        }, 2000);
+
+        setTimeout(function() { 
+        espaco_jogo.classList.add('aparecer_espaco_jogo');
+        espaco_jogo.classList.add('mostrar_conteudo');       
+        }, 2000);
+    }
+</script>
