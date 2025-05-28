@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+* {
+    
+    font-family: 'Baloo 2', cursive;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.master {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    /* background-image: url(../assets/image/ah.png); */
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    height: 83%;
+    width: 67%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px #2f81764f; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.espaco_cadastro {
+    height: 77%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: end;
+}
+
+.espaco_botao {
+    height: 23%;
+    width: 100%;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.espaco_botao button {
+    height: 45%;
+    width: 24%;
+    border-radius: 50px;
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.espaco_jogador1, .espaco_jogador2 {
+    height: 77%;
+    width: 37%;  
+    border-radius: 10px; 
+    padding: 25px 31px;
+}
+
+.espaco_cadastro h2{
+    margin: 0;
+}
+
+.espaco_cadastro p{
+    margin: 13px 0px;
+}
+
+.espaco_jogador1 {
+    background-color: #6DE1D2;
+}
+
+.espaco_jogador2 {
+    background-color: #ff8787; 
+}
+
+.espaco_avatar {
+    height: 30%;
+    width: 100%;  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.espaco_avatar button{
+    height: 95px;
+    width: 95px;  
+    border: solid rgb(255, 255, 255) 3px; 
+    border-radius: 50%;
+}
+
+.espaco_cadastro input{
+    height: 12%;
+    width: 98%;  
+    border: solid rgb(145, 145, 145) 2px; 
+    border-radius: 7px;
+}
