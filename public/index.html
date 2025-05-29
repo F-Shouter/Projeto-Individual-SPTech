@@ -1,220 +1,269 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Draw With Me</title>
-  <link rel="stylesheet" href="css/cadastro.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="./js/sessao.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
-  <div class="menu">
-    <div class="opcoes_menu">
-      <a href="pesquisa.html">Você Sabia?</a>
-      <a href="quiz.html">Quiz</a>
-      <a style="text-decoration: underline #f75a5a 4px; color: black" href="index.html">JOGO</a>
+    <div class="master">
+        <div class="form" id="form">
+
+            <div class="espaco_cadastro" id="espaco_cadastro">
+                <div class="espaco_jogador1" id="espaco_jogador1">
+                    <h2>Jogador 1</h2>
+                    <p>Escolha seu avatar:</p>
+                    <div class="espaco_avatar">
+                        <button class="btn_avatar avatar1 avt1" id="avt1"
+                            onclick="selecionar_avatar1_jogador1()"></button>
+                        <button class="btn_avatar avatar1 avt2" id="avt2"
+                            onclick="selecionar_avatar2_jogador1()"></button>
+                        <button class="btn_avatar avatar1 avt3" id="avt3"
+                            onclick="selecionar_avatar3_jogador1()"></button>
+                    </div>
+                    <p>Seu apelido:</p>
+                    <input type="text" id="input_apelido_jogador1" placeholder="Digite seu apelido">
+                </div>
+                <div class="espaco_jogador2" id="espaco_jogador2">
+                    <h2>Jogador 2</h2>
+                    <p>Escolha seu avatar:</p>
+                    <div class="espaco_avatar">
+                        <button class="btn_avatar avatar2 avt4" id="avt4"
+                            onclick="selecionar_avatar4_jogador2()"></button>
+                        <button class="btn_avatar avatar2 avt5" id="avt5"
+                            onclick="selecionar_avatar5_jogador2()"></button>
+                        <button class="btn_avatar avatar2 avt6" id="avt6"
+                            onclick="selecionar_avatar6_jogador2()"></button>
+                    </div>
+                    <p>Seu apelido:</p>
+                    <input type="text" id="input_apelido_jogador2" placeholder="Digite seu apelido">
+                </div>
+            </div>
+
+            <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
+                <div class="conteudo_jogo">
+                    <div>
+                        <div class="imagem_jogador1" style="display: none;" id="imagem_jogador1"></div>
+                        <h2 id="h2_apelido1"></h2>
+                    </div>
+
+                    <div class="canvas-container">
+                        <canvas id="drawingCanvas" width="600" height="400"></canvas>
+                    </div>
+
+                    <div>
+                        <div class="imagem_jogador2" style="display: none;" id="imagem_jogador2"></div>
+                        <h2 id="h2_apelido2"></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="espaco_botao" id="espaco_botao">
+                <button onclick="comecar_jogo(), cadastrar()" id="botao_jogo">Começar a Jogar!</button>
+            </div>
+
+        </div>
     </div>
-  </div>
-
-  <div id="div_carregando" style="display: none;">
-    <div class="carregando"><img id="img_carregador" src="assets/image/carregando.gif" alt=""></div>
-    <div class="eu_carregando"></div>
-
-  </div>
-
-  <div class="conteudo" id="div_conteudo" style="height: 550px;">
-    <div class="container">
-      <h1 style="color: black">Jogador 1</h1>
-      <span>(Escolha seu avatar)</span>
-      <div class="avatar">
-        <button id="avatar1_jogador1" onclick="selecionar_avatar1_jogador1()"><img src="assets/image/1.png"
-            alt="" /></button>
-        <button id="avatar2_jogador1" onclick="selecionar_avatar2_jogador1()"><img src="assets/image/2.png"
-            alt="" /></button>
-        <button id="avatar3_jogador1" onclick="selecionar_avatar3_jogador1()"><img src="assets/image/3.png"
-            alt="" /></button>
-        <button id="avatar4_jogador1" onclick="selecionar_avatar4_jogador1()"><img src="assets/image/4.png"
-            alt="" /></button>
-      </div>
-      <div class="apelido1">
-        <h1>Apelido:</h1>
-        <input id="input_apelido_jogador1" type="text" placeholder="Digite seu apelido"/>
-      </div>
-    </div>
-
-    <div>
-      <h1 style="font-size: 70px">+</h1>
-    </div>
-
-    <div class="container container2">
-      <h1 style="color: black">Jogador 2</h1>
-      <span>(Escolha seu avatar)</span>
-      <div class="avatar">
-        <button id="avatar1_jogador2" onclick="selecionar_avatar1_jogador2()"><img src="assets/image/1.png"
-            alt="" /></button>
-        <button id="avatar2_jogador2" onclick="selecionar_avatar2_jogador2()"><img src="assets/image/2.png"
-            alt="" /></button>
-        <button id="avatar3_jogador2" onclick="selecionar_avatar3_jogador2()"><img src="assets/image/3.png"
-            alt="" /></button>
-        <button id="avatar4_jogador2" onclick="selecionar_avatar4_jogador2()"><img src="assets/image/4.png"
-            alt="" /></button>
-      </div>
-
-      <div class="apelido2">
-        <h1>Apelido:</h1>
-        <input id="input_apelido_jogador2" type="text" placeholder="Digite seu apelido"/>
-      </div>
-    </div>
-
-    <div>
-      <h1 style="font-size: 70px">=</h1>
-    </div>
-
-    <div class="div_botao_jogar">
-      <button onclick="cadastrar()">
-        <h1 style="font-size: 70px; color: rgb(0, 0, 0); margin: 0">JOGAR</h1>
-        <span style="font-size: 20px; text-decoration: none; color: black;">(clique aqui)</span>
-      </button>
-
-    </div>
-  </div>
-
-  <div class="rodape">
-    <p>Projeto dedicado pela aluna, Anne Y. Yamasaki - 1ADS/2025</p>
-  </div>
 </body>
 
 </html>
 <script>
-  var avatar_jogador1;
-  var avatar_jogador2;
-
-  function selecionar_avatar1_jogador1() {
-    avatar_jogador1 = "assets/image/1.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "1";
-    document.getElementById("avatar2_jogador1").style.opacity = "0";
-    document.getElementById("avatar3_jogador1").style.opacity = "0";
-    document.getElementById("avatar4_jogador1").style.opacity = "0";
-  }
-
-  function selecionar_avatar2_jogador1() {
-    avatar_jogador1 = "assets/image/2.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "0";
-    document.getElementById("avatar2_jogador1").style.opacity = "1";
-    document.getElementById("avatar3_jogador1").style.opacity = "0";
-    document.getElementById("avatar4_jogador1").style.opacity = "0";
-  }
-
-  function selecionar_avatar3_jogador1() {
-    avatar_jogador1 = "assets/image/3.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "0";
-    document.getElementById("avatar2_jogador1").style.opacity = "0";
-    document.getElementById("avatar3_jogador1").style.opacity = "1";
-    document.getElementById("avatar4_jogador1").style.opacity = "0";
-  }
-
-  function selecionar_avatar4_jogador1() {
-    avatar_jogador1 = "assets/image/4.png";
-    document.getElementById("avatar1_jogador1").style.opacity = "0";
-    document.getElementById("avatar2_jogador1").style.opacity = "0";
-    document.getElementById("avatar3_jogador1").style.opacity = "0";
-    document.getElementById("avatar4_jogador1").style.opacity = "1";
-  }
-
-  function selecionar_avatar1_jogador2() {
-    avatar_jogador2 = "assets/image/1.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "1";
-    document.getElementById("avatar2_jogador2").style.opacity = "0";
-    document.getElementById("avatar3_jogador2").style.opacity = "0";
-    document.getElementById("avatar4_jogador2").style.opacity = "0";
-  }
-  function selecionar_avatar2_jogador2() {
-    avatar_jogador2 = "assets/image/2.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "0";
-    document.getElementById("avatar2_jogador2").style.opacity = "1";
-    document.getElementById("avatar3_jogador2").style.opacity = "0";
-    document.getElementById("avatar4_jogador2").style.opacity = "0";
-  }
-  function selecionar_avatar3_jogador2() {
-    avatar_jogador2 = "assets/image/3.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "0";
-    document.getElementById("avatar2_jogador2").style.opacity = "0";
-    document.getElementById("avatar3_jogador2").style.opacity = "1";
-    document.getElementById("avatar4_jogador2").style.opacity = "0";
-  }
-  function selecionar_avatar4_jogador2() {
-    avatar_jogador2 = "assets/image/4.png";
-    document.getElementById("avatar1_jogador2").style.opacity = "0";
-    document.getElementById("avatar2_jogador2").style.opacity = "0";
-    document.getElementById("avatar3_jogador2").style.opacity = "0";
-    document.getElementById("avatar4_jogador2").style.opacity = "1";
-  }
-
-  function mostrarDivCarregando() {
-    var divCarregando = document.getElementById('div_carregando');
-    var euCarregando = document.querySelector('.eu_carregando');
-
-    divCarregando.style.display = "block";
-    euCarregando.style.display = "none";
-
-    setTimeout(() => {
-      euCarregando.style.display = "block";
-    }, 3000);
-  }
 
 
-  function cadastrar() {
-    
-    document.getElementById("div_conteudo").style.filter = "blur(2px)";
-    document.getElementById("div_conteudo").style.opacity = "0.1";
-    mostrarDivCarregando();
-    setTimeout(() => {
-      window.location = "jogo.html";
-    }, 4500);
 
-    var apelido_jogador1Var = input_apelido_jogador1.value;
-    var apelido_jogador2Var = input_apelido_jogador2.value;
-    var avatar_jogador1Var = avatar_jogador1;
-    var avatar_jogador2Var = avatar_jogador2;
+    var avatar_jogador1;
+    var avatar_jogador2;
 
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        apelido_jogador1Server: apelido_jogador1Var,
-        apelido_jogador2Server: apelido_jogador2Var,
-        avatar_jogador1Server: avatar_jogador1Var,
-        avatar_jogador2Server: avatar_jogador2Var,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+    var avt1 = document.getElementById('avt1');
+    var avt2 = document.getElementById('avt2');
+    var avt3 = document.getElementById('avt3');
+    var avt4 = document.getElementById('avt4');
+    var avt5 = document.getElementById('avt5');
+    var avt6 = document.getElementById('avt6');
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
+    function selecionar_avatar1_jogador1() {
+        avatar_jogador1 = "assets/image/avatar1.png";
+        avt1.classList.add('selected');
+        avt2.classList.remove('selected');
+        avt3.classList.remove('selected');
+    }
 
-          setTimeout(() => {
-            window.location = "jogo.html";
-          }, "2000");
+    function selecionar_avatar2_jogador1() {
+        avatar_jogador1 = "assets/image/avatar2.png";
+        avt2.classList.add('selected');
+        avt1.classList.remove('selected');
+        avt3.classList.remove('selected');
+    }
 
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+    function selecionar_avatar3_jogador1() {
+        avatar_jogador1 = "assets/image/avatar3.png";
+        avt3.classList.add('selected');
+        avt1.classList.remove('selected');
+        avt2.classList.remove('selected');
+    }
+
+    function selecionar_avatar4_jogador2() {
+        avatar_jogador2 = "assets/image/avatar4.png";
+        avt4.classList.add('selected');
+        avt5.classList.remove('selected');
+        avt6.classList.remove('selected');
+    }
+
+    function selecionar_avatar5_jogador2() {
+        avatar_jogador2 = "assets/image/avatar5.png";
+        avt5.classList.add('selected');
+        avt4.classList.remove('selected');
+        avt6.classList.remove('selected');
+    }
+    function selecionar_avatar6_jogador2() {
+        avatar_jogador2 = "assets/image/avatar6.png";
+        avt6.classList.add('selected');
+        avt4.classList.remove('selected');
+        avt5.classList.remove('selected');
+    }
+
+    function cadastrar() {
+
+        var apelido_jogador1Var = input_apelido_jogador1.value;
+        var apelido_jogador2Var = input_apelido_jogador2.value;
+        var avatar_jogador1Var = avatar_jogador1;
+        var avatar_jogador2Var = avatar_jogador2;
+
+        fetch("/jogador/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                apelido_jogador1Server: apelido_jogador1Var,
+                apelido_jogador2Server: apelido_jogador2Var,
+                avatar_jogador1Server: avatar_jogador1Var,
+                avatar_jogador2Server: avatar_jogador2Var,
+            }),
+        })
+    }
+
+
+
+    function comecar_jogo() {
+        var avatar1Selecionado = document.querySelector('.espaco_jogador1 .btn_avatar.selected');
+        var avatar2Selecionado = document.querySelector('.espaco_jogador2 .btn_avatar.selected');
+        var apelido1 = document.getElementById('input_apelido_jogador1').value.trim();
+        var apelido2 = document.getElementById('input_apelido_jogador2').value.trim();
+
+        if (!avatar1Selecionado || !avatar2Selecionado || apelido1 === "" || apelido2 === "") {
+            alert("Escolha um avatar e preencha o apelido para ambos os jogadores!");
+            return;
         }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
 
-    return false;
-  }
+        document.getElementById('h2_apelido1').textContent = apelido1;
+        document.getElementById('h2_apelido2').textContent = apelido2;
+
+        var form = document.getElementById('form');
+        var espaco_jogador1 = document.getElementById('espaco_jogador1');
+        var espaco_jogador2 = document.getElementById('espaco_jogador2');
+        var imagem_jogador1 = document.getElementById('imagem_jogador1');
+        var imagem_jogador2 = document.getElementById('imagem_jogador2');
+        var espaco_cadastro = document.getElementById('espaco_cadastro');
+        var espaco_jogo = document.getElementById('espaco_jogo');
+        var espaco_botao = document.getElementById('espaco_botao');
+        var botao_jogo = document.getElementById('botao_jogo');
+
+        imagem_jogador1.style.backgroundImage = `url('${avatar_jogador1}')`;
+        imagem_jogador1.style.backgroundSize = "cover";
+        imagem_jogador1.style.backgroundPosition = "center";
+
+        imagem_jogador2.style.backgroundImage = `url('${avatar_jogador2}')`;
+        imagem_jogador2.style.backgroundSize = "cover";
+        imagem_jogador2.style.backgroundPosition = "center";
+
+        form.classList.add('expandir');
+        espaco_jogador1.classList.add('sair_para_esquerda');
+        espaco_jogador2.classList.add('sair_para_direita');
+        imagem_jogador1.style.display = 'block';
+        imagem_jogador2.style.display = 'block';
+        botao_jogo.style.display = 'none';
+
+        setTimeout(function () {
+            espaco_cadastro.style.display = 'none';
+            espaco_botao.style.display = 'none';
+            espaco_jogo.style.display = 'flex';
+        }, 2000);
+
+        setTimeout(function () {
+            espaco_jogo.classList.add('aparecer_espaco_jogo');
+        }, 2000);
+
+        setTimeout(function () {
+            espaco_jogo.classList.add('mostrar_conteudo');
+            iniciarCanvas();
+        }, 3000);
+    }
+
+    function iniciarCanvas() {
+        var canvas = document.getElementById('drawingCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Jogador 1 (WSAD)
+        let pos1 = { x: 100, y: 200 };
+        // Jogador 2 (Setas)
+        let pos2 = { x: 500, y: 200 };
+        let tamanho = 5;
+
+
+        const keysPressed = {};
+
+        document.addEventListener('keydown', function (e) {
+            keysPressed[e.key] = true;
+        });
+        document.addEventListener('keyup', function (e) {
+            keysPressed[e.key] = false;
+        });
+
+        function processaMovimento() {
+            // Jogador 1 (WSAD)
+            let old1 = { x: pos1.x, y: pos1.y };
+            let moved1 = false;
+            let step = 2;
+            if (keysPressed['w'] || keysPressed['W']) { pos1.y -= step; moved1 = true; }
+            if (keysPressed['s'] || keysPressed['S']) { pos1.y += step; moved1 = true; }
+            if (keysPressed['a'] || keysPressed['A']) { pos1.x -= step; moved1 = true; }
+            if (keysPressed['d'] || keysPressed['D']) { pos1.x += step; moved1 = true; }
+            if (moved1) {
+                ctx.beginPath();
+                ctx.moveTo(old1.x, old1.y);
+                ctx.lineTo(pos1.x, pos1.y);
+                ctx.strokeStyle = "#0074D9";
+                ctx.lineWidth = tamanho;
+                ctx.stroke();
+            }
+
+            // Jogador 2 (Setas)
+            let old2 = { x: pos2.x, y: pos2.y };
+            let moved2 = false;
+            if (keysPressed['ArrowUp']) { pos2.y -= step; moved2 = true; }
+            if (keysPressed['ArrowDown']) { pos2.y += step; moved2 = true; }
+            if (keysPressed['ArrowLeft']) { pos2.x -= step; moved2 = true; }
+            if (keysPressed['ArrowRight']) { pos2.x += step; moved2 = true; }
+            if (moved2) {
+                ctx.beginPath();
+                ctx.moveTo(old2.x, old2.y);
+                ctx.lineTo(pos2.x, pos2.y);
+                ctx.strokeStyle = "#FF4136";
+                ctx.lineWidth = tamanho;
+                ctx.stroke();
+            }
+        }
+
+        // Game loop para desenhar enquanto as teclas estiverem pressionadas
+        function gameLoop() {
+            processaMovimento();
+            requestAnimationFrame(gameLoop);
+        }
+        gameLoop();
+    }
+
 </script>

@@ -1,17 +1,17 @@
 var express = require("express");
 var router = express.Router();
 
-var usuarioController = require("../controllers/usuarioController");
-var usuarioModel = require("../models/usuarioModel")
+var jogadorController = require("../controllers/jogadorController");
+var jogadorModel = require("../models/jogadorModel")
 
-//Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
+//Recebendo os dados do html e direcionando para a função cadastrar de jogadorController.js
 router.post("/cadastrar", function (req, res) {
-    usuarioController.cadastrar(req, res);
+    jogadorController.cadastrar(req, res);
 });
 
 //Retornando os dados do banco e direcionando para a função retornar em jogo.html
 router.get("/retornar", function (req, res) {
-    usuarioModel.retornar(req) 
+    jogadorModel.retornar(req) 
         .then(resultado => { 
                 res.json(resultado[0]);
         })
