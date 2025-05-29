@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Campo de Desenho Simples</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; text-align: center; }
+    .canvas-container { background: #fff; border: 2px solid #333; display: inline-block; margin: 20px; }
+    #drawingCanvas { background: #fff; cursor: crosshair; }
+    .toolbar { margin: 10px 0; }
+    .color-btn, .eraser-btn {
+      width: 30px; height: 30px; border: none; border-radius: 50%; margin: 0 5px; cursor: pointer;
+      outline: 2px solid #ccc;
+    }
+    .color-btn.selected, .eraser-btn.selected { outline: 3px solid #333; }
+    .eraser-btn { background: url('data:image/svg+xml;utf8,<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="10" width="20" height="10" fill="gray" stroke="black" stroke-width="2"/></svg>') no-repeat center/20px #fff; }
+    .clear-btn { margin-left: 20px; padding: 6px 16px; border-radius: 8px; border: none; background: #e74c3c; color: #fff; cursor: pointer; }
+    .brush-size { vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <h2>Campo de Desenho</h2>
+  <div class="toolbar">
+    <button class="color-btn selected" style="background: #000;" data-color="#000000"></button>
+    <button class="color-btn" style="background: #FF0000;" data-color="#FF0000"></button>
+    <button class="color-btn" style="background: #00AA00;" data-color="#00AA00"></button>
+    <button class="color-btn" style="background: #0000FF;" data-color="#0000FF"></button>
+    <button class="color-btn" style="background: #FFFF00;" data-color="#FFFF00"></button>
+    <button class="eraser-btn" title="Borracha"></button>
+    <label style="margin-left:20px;">Tamanho:
+      <input type="range" min="2" max="20" value="5" class="brush-size" id="brushSize">
+    </label>
+    <button class="clear-btn" id="clearBtn">Limpar</button>
+  </div>
+  <div class="canvas-container">
+    <canvas id="drawingCanvas" width="600" height="400"></canvas>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('drawingCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let lastX = 0, lastY = 0;
+    let currentColor = "#000000";
+    let currentSize = 5;
+    let isEraser = false;
+
+    // Seleção de cor
+    document.querySelectorAll('.color-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        isEraser = false;
+        document.querySelectorAll('.color-btn, .eraser-btn').forEach(b => b.classList.remove('selected'));
+        this.classList.add('selected');
+        currentColor = this.dataset.color;
+        ctx.strokeStyle = currentColor;
+      });
+    });
+
+    // Borracha
+    document.querySelector('.eraser-btn').addEventListener('click', function() {
+      isEraser = true;
+      document.querySelectorAll('.color-btn, .eraser-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      ctx.strokeStyle = "#FFFFFF";
+    });
+
+    // Tamanho do pincel
+    document.getElementById('brushSize').addEventListener('input', function() {
+      currentSize = this.value;
+      ctx.lineWidth = currentSize;
+    });
+
+    // Limpar tudo
+    document.getElementById('clearBtn').addEventListener('click', function() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    // Desenho com mouse
+    canvas.addEventListener('mousedown', function(e) {
+      drawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+      ctx.lineWidth = currentSize;
+      ctx.strokeStyle = isEraser ? "#FFFFFF" : currentColor;
+    });
+    canvas.addEventListener('mousemove', function(e) {
+      if (!drawing) return;
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.strokeStyle = isEraser ? "#FFFFFF" : currentColor;
+      ctx.lineWidth = currentSize;
+      ctx.stroke();
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+    canvas.addEventListener('mouseup', () => drawing = false);
+    canvas.addEventListener('mouseout', () => drawing = false);
+
+    // Toque para celular/tablet
+    canvas.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      drawing = true;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      lastX = touch.clientX - rect.left;
+      lastY = touch.clientY - rect.top;
+    });
+    canvas.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = isEraser ? "#FFFFFF" : currentColor;
+      ctx.lineWidth = currentSize;
+      ctx.stroke();
+      lastX = x;
+      lastY = y;
+    });
+    canvas.addEventListener('touchend', () => drawing = false);
+    canvas.addEventListener('touchcancel', () => drawing = false);
+
+    // Inicialização
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = currentColor;
+    ctx.lineWidth = currentSize;
+  </script>
+</body>
+</html>
