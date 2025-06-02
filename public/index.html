@@ -4,15 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Draw With Me</title>
+    <link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
     <div class="master">
+
+
         <div class="form" id="form">
 
-            <div class="espaco_cadastro" id="espaco_cadastro">
+            <div class="inicio">
+                <div>
+                    <h1>Draw With Me</h1>
+                    <p>Um jogo de desenho onde você pode se divertir com seu amigo!</p>
+                </div>
+                <button onclick="iniciar_jogo()" >Jogar!</button>
+                <button onclick="iniciar_sobre()" >Conhecer!</button>
+            </div>
+
+            <div class="espaco_cadastro" id="espaco_cadastro" style="display: none;">
                 <div class="espaco_jogador1" id="espaco_jogador1">
                     <h2>Jogador 1</h2>
                     <p>Escolha seu avatar:</p>
@@ -43,6 +55,10 @@
                 </div>
             </div>
 
+
+
+
+
             <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
                 <div class="conteudo_jogo">
                     <div class="div_jogador">
@@ -63,12 +79,14 @@
                 </div>
             </div>
 
-            <div class="espaco_botao" id="espaco_botao">
+            <div class="espaco_botao" id="espaco_botao" style="display: none;">
                 <button onclick="comecar_jogo(), cadastrar()" id="botao_jogo">Começar a Jogar!</button>
             </div>
 
         </div>
     </div>
+
+
 </body>
 
 </html>
@@ -161,6 +179,11 @@
             return;
         }
 
+        if (apelido1.length > 12 || apelido2.length > 12) {
+            alert("O apelido deve ter no máximo 12 caracteres!");
+            return;
+        }
+
         document.getElementById('h2_apelido1').textContent = apelido1;
         document.getElementById('h2_apelido2').textContent = apelido2;
 
@@ -193,9 +216,6 @@
             espaco_cadastro.style.display = 'none';
             espaco_botao.style.display = 'none';
             espaco_jogo.style.display = 'flex';
-        }, 2000);
-
-        setTimeout(function () {
             espaco_jogo.classList.add('aparecer_espaco_jogo');
         }, 2000);
 
@@ -203,18 +223,31 @@
             espaco_jogo.classList.add('mostrar_conteudo');
             iniciarCanvas();
         }, 3000);
+
     }
 
     function iniciarCanvas() {
         var canvas = document.getElementById('drawingCanvas');
         var ctx = canvas.getContext('2d');
 
+        // Carregar imagem de fundo
+        var imgFundo = new Image();
+        imgFundo.src = 'assets/image/Contorno.png'; // ajuste o caminho se necessário
+
+
+
         // Jogador 1 (WSAD)
-        let pos1 = { x: 100, y: 200 };
+        let pos1 = { x: 175, y: 200 };
         // Jogador 2 (Setas)
-        let pos2 = { x: 500, y: 200 };
+        let pos2 = { x: 460, y: 200 };
         let tamanho = 5;
 
+        // Quando a imagem carregar, desenhe no canvas com transparência
+        imgFundo.onload = function () {
+            ctx.globalAlpha = 0.3; // 0.0 totalmente transparente, 1.0 opaco
+            ctx.drawImage(imgFundo, 0, 0, canvas.width, canvas.height);
+            ctx.globalAlpha = 1.0; // volta ao normal para os desenhos dos jogadores
+        };
 
         const keysPressed = {};
 
@@ -226,10 +259,11 @@
         });
 
         function processaMovimento() {
+
             // Jogador 1 (WSAD)
             let old1 = { x: pos1.x, y: pos1.y };
             let moved1 = false;
-            let step = 2;
+            let step = 1;
             if (keysPressed['w'] || keysPressed['W']) { pos1.y -= step; moved1 = true; }
             if (keysPressed['s'] || keysPressed['S']) { pos1.y += step; moved1 = true; }
             if (keysPressed['a'] || keysPressed['A']) { pos1.x -= step; moved1 = true; }

@@ -16,8 +16,6 @@ body {
     height: 100%;
     width: 100%;
     background-color: #4e4c40;
-    /* background-image: url(../assets/image/ah.png); */
-    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,6 +107,8 @@ body {
     transform: translateX(185%) rotate(135deg);
 }
 
+
+
 .espaco_avatar {
     height: 30%;
     width: 100%;  
@@ -178,6 +178,8 @@ body {
     font-size: 15px;
     padding: 0px 10px;
 }
+
+
 
 .espaco_jogo {
     z-index: 9;
