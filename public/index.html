@@ -5,24 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Draw With Me</title>
-    <link rel="shortcut icon" href="assets/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/icon/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
     <div class="master">
 
-
-        <div class="form" id="form">
-
-            <div class="inicio">
-                <div>
-                    <h1>Draw With Me</h1>
-                    <p>Um jogo de desenho onde você pode se divertir com seu amigo!</p>
-                </div>
-                <button onclick="iniciar_jogo()" >Jogar!</button>
-                <button onclick="iniciar_sobre()" >Conhecer!</button>
+        <div class="inicio" id="inicio">
+            <div class="titulo_inicio">
+                <h1><span style="color: #F75A5A;">Draw</span> <span style="color: #FFD63A;">With</span> <span
+                        style="color: #6DE1D2;">Me</span></h1>
+                <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
             </div>
+            <div class="botoes_inicio">
+                <div class="img_container">
+                    <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()"
+                        style="height: 125px; width: 125px;">
+                    <span class="img_texto">Jogar Agora!</span>
+                </div>
+
+                <div class="img_container">
+                    <img src="assets/image/pintar.png" alt="" onclick="iniciar_jogo()">
+                    <span class="img_texto">Conhecer Sobre!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form" id="form" style="display: none;">
 
             <div class="espaco_cadastro" id="espaco_cadastro" style="display: none;">
                 <div class="espaco_jogador1" id="espaco_jogador1">
@@ -55,10 +65,6 @@
                 </div>
             </div>
 
-
-
-
-
             <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
                 <div class="conteudo_jogo">
                     <div class="div_jogador">
@@ -86,13 +92,10 @@
         </div>
     </div>
 
-
 </body>
 
 </html>
 <script>
-
-
 
     var avatar_jogador1;
     var avatar_jogador2;
@@ -166,6 +169,21 @@
         })
     }
 
+    function iniciar_jogo() {
+        var form = document.getElementById('form');
+        var espaco_cadastro = document.getElementById('espaco_cadastro');
+        var espaco_botao = document.getElementById('espaco_botao');
+        var inicio = document.getElementById('inicio');
+
+        inicio.classList.add('sair_para_cima');
+
+        setTimeout(function () {
+            inicio.style.display = 'none';
+            form.style.display = 'flex';
+            espaco_cadastro.style.display = 'flex';
+            espaco_botao.style.display = 'flex';
+        }, 1000);
+    }
 
 
     function comecar_jogo() {
@@ -230,24 +248,11 @@
         var canvas = document.getElementById('drawingCanvas');
         var ctx = canvas.getContext('2d');
 
-        // Carregar imagem de fundo
-        var imgFundo = new Image();
-        imgFundo.src = 'assets/image/Contorno.png'; // ajuste o caminho se necessário
-
-
-
-        // Jogador 1 (WSAD)
+        // posição de jogador 1 
         let pos1 = { x: 175, y: 200 };
-        // Jogador 2 (Setas)
+        // posição de jogador 2 
         let pos2 = { x: 460, y: 200 };
         let tamanho = 5;
-
-        // Quando a imagem carregar, desenhe no canvas com transparência
-        imgFundo.onload = function () {
-            ctx.globalAlpha = 0.3; // 0.0 totalmente transparente, 1.0 opaco
-            ctx.drawImage(imgFundo, 0, 0, canvas.width, canvas.height);
-            ctx.globalAlpha = 1.0; // volta ao normal para os desenhos dos jogadores
-        };
 
         const keysPressed = {};
 
@@ -260,7 +265,6 @@
 
         function processaMovimento() {
 
-            // Jogador 1 (WSAD)
             let old1 = { x: pos1.x, y: pos1.y };
             let moved1 = false;
             let step = 1;
@@ -277,7 +281,6 @@
                 ctx.stroke();
             }
 
-            // Jogador 2 (Setas)
             let old2 = { x: pos2.x, y: pos2.y };
             let moved2 = false;
             if (keysPressed['ArrowUp']) { pos2.y -= step; moved2 = true; }
@@ -294,7 +297,7 @@
             }
         }
 
-        // Game loop para desenhar enquanto as teclas estiverem pressionadas
+        // desenhar enquanto as teclas estiverem pressionadas
         function gameLoop() {
             processaMovimento();
             requestAnimationFrame(gameLoop);
