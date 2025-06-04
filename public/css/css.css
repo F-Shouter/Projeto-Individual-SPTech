@@ -6,15 +6,12 @@
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
     margin: 0;
-    overflow: hidden;
 }
 
 .master {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
     background-color: #4e4c40;
     display: flex;
     flex-direction: column;
@@ -37,6 +34,10 @@ body {
                 opacity 0.7s;
     font-size: 20px;
     padding-top: 20px;
+}
+
+.inicio.expandir {
+    width: 90%; 
 }
 
 .inicio.sair_para_cima {
@@ -69,12 +70,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.titulo_inicio h1 {
-    font-size: 50px;
-    color: #000000;
-    margin: 0;
 }
 
 .botoes_inicio {
@@ -132,7 +127,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;         
+    top: 50%;                   
+    left: 50%;                  
+    transform: translate(-50%, -50%); 
+    opacity: 0;
+    transition: 
+        width 1s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form.mostrar {
+    opacity: 1;
 }
 
 .form.expandir {
@@ -362,3 +368,28 @@ body {
 }
 
 #drawingCanvas { background: #fff; cursor: crosshair; }
+
+.div_sobre_site {
+    width: 90%;
+    height: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.texto_sobre_site {
+    width: 70%;
+    height: 90%;
+    font-size: 20px;
+    color: #000;
+    text-align: justify;
+}
+
+.img_sobre_site {
+    width: 30%;
+    height: 85%;
+    background-color: red;
+}

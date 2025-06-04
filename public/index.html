@@ -7,89 +7,110 @@
     <title>Draw With Me</title>
     <link rel="shortcut icon" href="assets/icon/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css2/css.css">
 </head>
 
 <body>
     <div class="master">
 
         <div class="inicio" id="inicio">
-            <div class="titulo_inicio">
-                <h1><span style="color: #F75A5A;">Draw</span> <span style="color: #FFD63A;">With</span> <span
-                        style="color: #6DE1D2;">Me</span></h1>
-                <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
+
+            
+
+            <div class="div_sobre_site" style="display: none;" id="div_sobre_site">
+
+                <div class="img_sobre_site"></div>
+                <div class="texto_sobre_site">
+                    <h3 style="font-size: 30px; margin: 0;">O que é?</h3>
+                    <p>É um jogo feito para crianças.
+                        A ideia é simples, mas muito poderosa: desenhar juntas, de um jeito divertido e em grupo! Brincar é
+                        muito importante para que as crianças cresçam felizes e aprendam a se relacionar com outras pessoas.
+                        Quando uma criança fica muito tempo sozinha, ela pode se sentir triste e isolada. Por isso, esse
+                        jogo foi criado para ajudar a juntar crianças, para que elas possam brincar e se divertir
+                        desenhando.
+                        Com atividades criativas e legais, as crianças podem fazer desenhos juntas e criar amizades de
+                        verdade.</p>
+                </div>
+                
             </div>
-            <div class="botoes_inicio">
-                <div class="img_container">
-                    <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()"
-                        style="height: 125px; width: 125px;">
-                    <span class="img_texto">Jogar Agora!</span>
+
+            <div class="container_inicio" id="container_inicio">
+                <div class="titulo_inicio">
+
+                    <h1 style="margin: 0;"><span style="color: #F75A5A;">Draw</span> <span style="color: #FFD63A;">With</span> <span
+                    style="color: #6DE1D2;">Me</span></h1>
+
+                    <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
+                </div>
+                <div class="botoes_inicio">
+                    <div class="img_container">
+                        <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()"
+                            style="height: 125px; width: 125px;">
+                        <span class="img_texto">Jogar Agora!</span>
+                    </div>
+                    <div class="img_container">
+                        <img src="assets/image/pintar.png" alt="" onclick="iniciar_sobre()">
+                        <span class="img_texto">Conhecer Sobre!</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="form" id="form" style="display: none;">
+
+        <div class="espaco_cadastro" id="espaco_cadastro" style="display: none;">
+            <div class="espaco_jogador1" id="espaco_jogador1">
+                <h2>Jogador 1</h2>
+                <p>Escolha seu avatar:</p>
+                <div class="espaco_avatar">
+                    <button class="btn_avatar avatar1 avt1" id="avt1" onclick="selecionar_avatar1_jogador1()"></button>
+                    <button class="btn_avatar avatar1 avt2" id="avt2" onclick="selecionar_avatar2_jogador1()"></button>
+                    <button class="btn_avatar avatar1 avt3" id="avt3" onclick="selecionar_avatar3_jogador1()"></button>
+                </div>
+                <p>Seu apelido:</p>
+                <input type="text" id="input_apelido_jogador1" placeholder="Digite seu apelido">
+            </div>
+            <div class="espaco_jogador2" id="espaco_jogador2">
+                <h2>Jogador 2</h2>
+                <p>Escolha seu avatar:</p>
+                <div class="espaco_avatar">
+                    <button class="btn_avatar avatar2 avt4" id="avt4" onclick="selecionar_avatar4_jogador2()"></button>
+                    <button class="btn_avatar avatar2 avt5" id="avt5" onclick="selecionar_avatar5_jogador2()"></button>
+                    <button class="btn_avatar avatar2 avt6" id="avt6" onclick="selecionar_avatar6_jogador2()"></button>
+                </div>
+                <p>Seu apelido:</p>
+                <input type="text" id="input_apelido_jogador2" placeholder="Digite seu apelido">
+            </div>
+        </div>
+
+        <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
+            <div class="conteudo_jogo">
+                <div class="div_jogador">
+                    <h2 id="h2_apelido1"></h2>
+                    <div class="imagem_jogador1" style="display: none;" id="imagem_jogador1"></div>
+                    <img src="assets/image/wsad.png" alt="">
                 </div>
 
-                <div class="img_container">
-                    <img src="assets/image/pintar.png" alt="" onclick="iniciar_sobre()">
-                    <span class="img_texto">Conhecer Sobre!</span>
+                <div class="canvas-container">
+                    <canvas id="drawingCanvas" width="600" height="400"></canvas>
+                </div>
+
+                <div class="div_jogador">
+                    <h2 id="h2_apelido2"></h2>
+                    <div class="imagem_jogador2" style="display: none;" id="imagem_jogador2"></div>
+                    <img src="assets/image/setas.png" alt="">
                 </div>
             </div>
         </div>
 
-        <div class="form" id="form" style="display: none;">
-
-            <div class="espaco_cadastro" id="espaco_cadastro" style="display: none;">
-                <div class="espaco_jogador1" id="espaco_jogador1">
-                    <h2>Jogador 1</h2>
-                    <p>Escolha seu avatar:</p>
-                    <div class="espaco_avatar">
-                        <button class="btn_avatar avatar1 avt1" id="avt1"
-                            onclick="selecionar_avatar1_jogador1()"></button>
-                        <button class="btn_avatar avatar1 avt2" id="avt2"
-                            onclick="selecionar_avatar2_jogador1()"></button>
-                        <button class="btn_avatar avatar1 avt3" id="avt3"
-                            onclick="selecionar_avatar3_jogador1()"></button>
-                    </div>
-                    <p>Seu apelido:</p>
-                    <input type="text" id="input_apelido_jogador1" placeholder="Digite seu apelido">
-                </div>
-                <div class="espaco_jogador2" id="espaco_jogador2">
-                    <h2>Jogador 2</h2>
-                    <p>Escolha seu avatar:</p>
-                    <div class="espaco_avatar">
-                        <button class="btn_avatar avatar2 avt4" id="avt4"
-                            onclick="selecionar_avatar4_jogador2()"></button>
-                        <button class="btn_avatar avatar2 avt5" id="avt5"
-                            onclick="selecionar_avatar5_jogador2()"></button>
-                        <button class="btn_avatar avatar2 avt6" id="avt6"
-                            onclick="selecionar_avatar6_jogador2()"></button>
-                    </div>
-                    <p>Seu apelido:</p>
-                    <input type="text" id="input_apelido_jogador2" placeholder="Digite seu apelido">
-                </div>
-            </div>
-
-            <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
-                <div class="conteudo_jogo">
-                    <div class="div_jogador">
-                        <h2 id="h2_apelido1"></h2>
-                        <div class="imagem_jogador1" style="display: none;" id="imagem_jogador1"></div>
-                        <img src="assets/image/wsad.png" alt="">
-                    </div>
-
-                    <div class="canvas-container">
-                        <canvas id="drawingCanvas" width="600" height="400"></canvas>
-                    </div>
-
-                    <div class="div_jogador">
-                        <h2 id="h2_apelido2"></h2>
-                        <div class="imagem_jogador2" style="display: none;" id="imagem_jogador2"></div>
-                        <img src="assets/image/setas.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="espaco_botao" id="espaco_botao" style="display: none;">
-                <button onclick="comecar_jogo(), cadastrar()" id="botao_jogo">Começar a Jogar!</button>
-            </div>
-
+        <div class="espaco_botao" id="espaco_botao" style="display: none;">
+            <button onclick="comecar_jogo(), cadastrar()" id="botao_jogo">Começar a Jogar!</button>
         </div>
+
+    </div>
     </div>
 
 </body>
@@ -170,18 +191,37 @@
     }
 
     function iniciar_jogo() {
-        var form = document.getElementById('form');
-        var espaco_cadastro = document.getElementById('espaco_cadastro');
-        var espaco_botao = document.getElementById('espaco_botao');
-        var inicio = document.getElementById('inicio');
+    var form = document.getElementById('form');
+    var espaco_cadastro = document.getElementById('espaco_cadastro');
+    var espaco_botao = document.getElementById('espaco_botao');
+    var inicio = document.getElementById('inicio');
 
-        inicio.classList.add('sair_para_cima');
+    inicio.classList.add('sair_para_cima');
+
+    setTimeout(function () {
+        inicio.style.display = 'none';
+        form.style.display = 'flex';
+        espaco_cadastro.style.display = 'flex';
+        espaco_botao.style.display = 'flex';
 
         setTimeout(function () {
-            inicio.style.display = 'none';
-            form.style.display = 'flex';
-            espaco_cadastro.style.display = 'flex';
-            espaco_botao.style.display = 'flex';
+            form.classList.add('mostrar');
+        }, 10);
+    }, 1000);
+}
+
+    function iniciar_sobre() {
+        var inicio = document.getElementById('inicio');
+        var container_inicio = document.getElementById('container_inicio');
+        var div_sobre_site = document.getElementById('div_sobre_site');        
+
+        container_inicio.style.opacity = '0';
+        container_inicio.style.transition = 'opacity 0.5s ease-in-out';
+        inicio.classList.add('expandir');
+
+        setTimeout(function () {
+            container_inicio.style.display = 'none';
+            div_sobre_site.style.display = 'flex';
         }, 1000);
     }
 
