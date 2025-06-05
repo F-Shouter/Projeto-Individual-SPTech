@@ -13,49 +13,47 @@
 <body>
     <div class="master">
 
-        <div class="inicio" id="inicio">
+        
 
-            
+        <div class="conhecimento" id="conhecimento" style="display: none;">
 
-            <div class="div_sobre_site" style="display: none;" id="div_sobre_site">
-
-                <div class="img_sobre_site"></div>
-                <div class="texto_sobre_site">
-                    <h3 style="font-size: 30px; margin: 0;">O que é?</h3>
-                    <p>É um jogo feito para crianças.
-                        A ideia é simples, mas muito poderosa: desenhar juntas, de um jeito divertido e em grupo! Brincar é
-                        muito importante para que as crianças cresçam felizes e aprendam a se relacionar com outras pessoas.
-                        Quando uma criança fica muito tempo sozinha, ela pode se sentir triste e isolada. Por isso, esse
-                        jogo foi criado para ajudar a juntar crianças, para que elas possam brincar e se divertir
-                        desenhando.
-                        Com atividades criativas e legais, as crianças podem fazer desenhos juntas e criar amizades de
-                        verdade.</p>
-                </div>
-                
+            <div class="container_sobre">
+                <div class="div_sobre sobre1"><span class="titulo_vertical">Sobre Autor</span></div>
             </div>
 
-            <div class="container_inicio" id="container_inicio">
-                <div class="titulo_inicio">
-
-                    <h1 style="margin: 0;"><span style="color: #F75A5A;">Draw</span> <span style="color: #FFD63A;">With</span> <span
-                    style="color: #6DE1D2;">Me</span></h1>
-
-                    <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
-                </div>
-                <div class="botoes_inicio">
-                    <div class="img_container">
-                        <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()"
-                            style="height: 125px; width: 125px;">
-                        <span class="img_texto">Jogar Agora!</span>
-                    </div>
-                    <div class="img_container">
-                        <img src="assets/image/pintar.png" alt="" onclick="iniciar_sobre()">
-                        <span class="img_texto">Conhecer Sobre!</span>
-                    </div>
-                </div>
+            <div class="container_sobre">
+                <div class="div_sobre sobre2"><span class="titulo_vertical">Sobre Site</span></div>
             </div>
+
+            <div class="container_sobre">
+                <div class="div_sobre sobre3"><span class="titulo_vertical">Pesquisa</span></div>
+            </div>
+
 
         </div>
+
+        <div class="inicio" id="inicio">
+            <div class="titulo_inicio">
+
+                <h1 style="margin: 0;"><span style="color: #F75A5A;">Draw</span> <span
+                        style="color: #FFD63A;">With</span> <span style="color: #6DE1D2;">Me</span></h1>
+
+                <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
+            </div>
+            <div class="botoes_inicio">
+                <div class="img_container">
+                    <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()"
+                        style="height: 125px; width: 125px;">
+                    <span class="img_texto">Jogar Agora!</span>
+                </div>
+                <div class="img_container">
+                    <img src="assets/image/pintar.png" alt="" onclick="iniciar_sobre()">
+                    <span class="img_texto">Conhecer Sobre!</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     </div>
 
@@ -191,38 +189,47 @@
     }
 
     function iniciar_jogo() {
-    var form = document.getElementById('form');
-    var espaco_cadastro = document.getElementById('espaco_cadastro');
-    var espaco_botao = document.getElementById('espaco_botao');
-    var inicio = document.getElementById('inicio');
+        var form = document.getElementById('form');
+        var espaco_cadastro = document.getElementById('espaco_cadastro');
+        var espaco_botao = document.getElementById('espaco_botao');
+        var inicio = document.getElementById('inicio');
 
-    inicio.classList.add('sair_para_cima');
+        inicio.classList.add('sair_para_cima');
 
-    setTimeout(function () {
-        inicio.style.display = 'none';
-        form.style.display = 'flex';
-        espaco_cadastro.style.display = 'flex';
-        espaco_botao.style.display = 'flex';
+        document.addEventListener('keydown', function (event) {
+            var botao_jogo = document.getElementById('botao_jogo');
+            if (
+                event.key === "Enter"
+            ) {
+                botao_jogo.click();
+            }
+        });
 
         setTimeout(function () {
-            form.classList.add('mostrar');
-        }, 10);
-    }, 1000);
-}
+            inicio.style.display = 'none';
+            form.style.display = 'flex';
+            espaco_cadastro.style.display = 'flex';
+            espaco_botao.style.display = 'flex';
+
+            setTimeout(function () {
+                form.classList.add('mostrar');
+            }, 10);
+        }, 1000);
+    }
 
     function iniciar_sobre() {
         var inicio = document.getElementById('inicio');
-        var container_inicio = document.getElementById('container_inicio');
-        var div_sobre_site = document.getElementById('div_sobre_site');        
+        var conhecimento = document.getElementById('conhecimento');
 
-        container_inicio.style.opacity = '0';
-        container_inicio.style.transition = 'opacity 0.5s ease-in-out';
-        inicio.classList.add('expandir');
+        
+        inicio.classList.add('sair_para_cima');       
 
         setTimeout(function () {
-            container_inicio.style.display = 'none';
-            div_sobre_site.style.display = 'flex';
-        }, 1000);
+                inicio.style.display = 'none';
+                conhecimento.style.display = 'flex';
+            }, 1000);
+
+        
     }
 
 
