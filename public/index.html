@@ -8,25 +8,101 @@
     <link rel="shortcut icon" href="assets/icon/icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="css2/css.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 
 <body>
     <div class="master">
 
-        
+
 
         <div class="conhecimento" id="conhecimento" style="display: none;">
 
-            <div class="container_sobre">
-                <div class="div_sobre sobre1"><span class="titulo_vertical">Sobre Autor</span></div>
+            <div class="container_sobre" id="sobre_autor">
+                <div class="div_sobre sobre1" onclick="exibir_sobreAutor()"><span class="titulo_vertical">Sobre
+                        Autor</span></div>
+                <div style="display: none;" id="conteudo_autor">
+                    <div class="img_sobre"><img src="assets/image/eu.jpg" alt="">
+
+                        <div class="paragrafo">
+                            <h1>Olá! Quem sou eu?</h1>
+                            <p>
+                                Eu me chamo <b>Anne Y. Yamasaki</b>, estudo no primeiro ano da faculdade SPTech e tenho
+                                23 anos. Meu
+                                passatempo preferido é desenhar, principalmente no estilo de mangá (um tipo de desenho
+                                japonês).
+                                Muita gente me pergunta quando comecei a desenhar. Na verdade, eu era uma criança muito
+                                quieta e
+                                ficava desenhando nos recreios da escola. Eu fazia isso porque sofri bullying, e isso me
+                                deixou
+                                triste e com vontade de ficar sozinha...
+                            </p>
+                        </div>
+                    </div>
+                    <div class="texto">
+                        <p>
+                            Quando eu tinha 15 anos, descobri que estava com depressão, uma doença que deixa a gente
+                            muito
+                            triste por muito tempo. Ficar isolada e sem brincar com outras crianças me fez sentir ainda
+                            pior.
+                            Essa fase foi muito difícil para mim, mas ela me ensinou algo importante. Por isso, eu criei
+                            esse jogo: <b><i>para que nenhuma criança precise se sentir sozinha como eu me
+                                    senti.</i></b></p>
+                    </div>
+                </div>
             </div>
 
-            <div class="container_sobre">
-                <div class="div_sobre sobre2"><span class="titulo_vertical">Sobre Site</span></div>
+            <div class="container_sobre" id="sobre_site">
+                <div class="div_sobre sobre2" onclick="exibir_sobreSite()"><span class="titulo_vertical">Sobre
+                        Site</span></div>
+                <div style="display: none;" id="conteudo_site">
+                    <div class="img_sobre"><img src="assets/image/draw.jpg" alt="">
+
+                        <div class="paragrafo">
+                            <h1>Draw With Me é um jogo feito especialmente para crianças.</h1>
+                            <p>
+                                A ideia é simples, mas muito poderosa: desenhar juntas, de um jeito divertido e em
+                                grupo! <b>Brincar é muito importante para que as crianças</b> cresçam felizes e aprendam
+                                a se relacionar com outras pessoas. Quando uma criança fica muito tempo sozinha, ela
+                                pode se sentir triste e isolada.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="texto">
+                        <p>Por isso, esse jogo foi criado para ajudar a juntar crianças, para que elas possam brincar e
+                            se divertir desenhando. <b><i>Com atividades criativas e legais, as crianças podem fazer
+                                    desenhos juntas e criar amizades de verdade.</i></b></p>
+                    </div>
+                </div>
             </div>
 
-            <div class="container_sobre">
-                <div class="div_sobre sobre3"><span class="titulo_vertical">Pesquisa</span></div>
+            <div class="container_sobre" id="sobre_pesquisa">
+                <div class="div_sobre sobre3" onclick="exibir_sobrePesquisa()"><span
+                        class="titulo_vertical">Pesquisa</span></div>
+                <div style="display: none;" id="conteudo_pesquisa">
+                    <div class="texto_pesquisa">
+
+                        <div class="paragrafo" style="width: 100%; padding: 0;">
+                            <h1>Uma Pesquisa Sobre Conexão e Emoção</h1>
+                            <p>
+                                Durante a pesquisa realizada com os alunos da minha sala na faculdade, foi feita uma
+                                breve enquete com três perguntas sobre a infância e o brincar. Os gráficos abaixo
+                                mostram os resultados das perguntas sendo: gráfico 1 - "<b>Quando você era criança, teve
+                                    algum momento que se afastou de brincar com outras crianças?</b>"; gráfico 2 -
+                                "<b>Se sim, qual foi o motivo?</b>"; gráfico 3 - "<b>Você concorda que esse isolamento
+                                    naquele momento possa ter te afetado emocionalmente depois que cresceu?</b>"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="graficos">
+                        <div class="grafico_pizza"><canvas id="canvas_grafico_afastamento"></canvas></div>
+                        <div class="grafico_barra"><canvas id="canvas_grafico_motivo"></canvas></div>
+                        <div class="grafico_pizza"><canvas id="canvas_grafico_emocional"></canvas></div>
+                    </div>
+
+                </div>
             </div>
 
 
@@ -221,17 +297,233 @@
         var inicio = document.getElementById('inicio');
         var conhecimento = document.getElementById('conhecimento');
 
-        
-        inicio.classList.add('sair_para_cima');       
+
+        inicio.classList.add('sair_para_cima');
 
         setTimeout(function () {
-                inicio.style.display = 'none';
-                conhecimento.style.display = 'flex';
-            }, 1000);
+            inicio.style.display = 'none';
+            conhecimento.style.display = 'flex';
+            exibir_sobreAutor();
+        }, 1000);
 
-        
     }
 
+    var sobre_autor = document.getElementById('sobre_autor');
+    var sobre_site = document.getElementById('sobre_site');
+    var sobre_pesquisa = document.getElementById('sobre_pesquisa');
+    var conteudoAutor = document.getElementById('conteudo_autor');
+    var conteudoSite = document.getElementById('conteudo_site');
+    var conteudoPesquisa = document.getElementById('conteudo_pesquisa');
+
+    function exibir_sobreAutor() {
+        sobre_autor.classList.add('mostrar_sobre');
+        sobre_site.classList.remove('mostrar_sobre');
+        sobre_pesquisa.classList.remove('mostrar_sobre');
+
+        conteudoAutor.style.display = "flex";
+        conteudoSite.style.display = "none";
+        conteudoPesquisa.style.display = "none";
+    }
+
+    function exibir_sobreSite() {
+        sobre_autor.classList.remove('mostrar_sobre');
+        sobre_site.classList.add('mostrar_sobre');
+        sobre_pesquisa.classList.remove('mostrar_sobre');
+
+        conteudoAutor.style.display = "none";
+        conteudoSite.style.display = "flex";
+        conteudoPesquisa.style.display = "none";
+    }
+
+    function exibir_sobrePesquisa() {
+        sobre_autor.classList.remove('mostrar_sobre');
+        sobre_site.classList.remove('mostrar_sobre');
+        sobre_pesquisa.classList.add('mostrar_sobre');
+
+        conteudoAutor.style.display = "none";
+        conteudoSite.style.display = "none";
+        conteudoPesquisa.style.display = "flex";
+
+        retornar_dados_afastamento();
+        retornar_dados_motivo();
+        retornar_dados_emocional();
+    }
+
+     // variaveis para gráfico de afastamento
+  var qtd_sim_afastamento = 0;
+  var qtd_nao_afastamento = 0;
+  var percentual_sim_afastamento;
+  var percentual_nao_afastamento;
+
+    function retornar_dados_afastamento() {
+    fetch("/pesquisa/retornar/afastamento", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json())
+      .then(data => {
+        qtd_sim_afastamento = Number(data.qtd_sim);
+        qtd_nao_afastamento = Number(data.qtd_nao);
+
+        console.log("Dados recebidos:", qtd_sim_afastamento, qtd_nao_afastamento);
+
+        calculo_percentual_afastamento();
+        criar_grafico_afastamento();
+      })
+  }
+
+  function calculo_percentual_afastamento() {
+    var total = qtd_sim_afastamento + qtd_nao_afastamento;
+    if (total === 0) {
+      percentual_sim_afastamento = 0;
+      percentual_nao_afastamento = 0;
+    } else {
+      percentual_sim_afastamento = (qtd_sim_afastamento / total) * 100;
+      percentual_nao_afastamento = (qtd_nao_afastamento / total) * 100;
+    }
+
+    console.log("percentual_sim_afastamento:", percentual_sim_afastamento, "percentual_nao_afastamento:", percentual_nao_afastamento);
+  }
+
+    
+  function criar_grafico_afastamento() {
+    const grafico_afastamento = document.getElementById("canvas_grafico_afastamento");
+    new Chart(grafico_afastamento, {
+      type: "pie",
+      data: {
+        labels: ["Sim", "Não"],
+        datasets: [
+          {
+            label: "percentual",
+            data: [percentual_sim_afastamento, percentual_nao_afastamento],
+            backgroundColor: [
+              "rgb(75, 192, 192)",
+              "rgb(255, 99, 132)",
+            ],
+            hoverOffset: 2,
+          },
+        ],
+      },
+    });
+  }
+
+    //variaveis para grafico de motivo
+  var bullying_motivo = 0;
+  var problema_casa_motivo = 0;
+  var mau_entendido_motivo = 0;
+  var outro_motivo = 0;
+
+  function retornar_dados_motivo() {
+    fetch("/pesquisa/retornar/motivo", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json())
+      .then(data => {
+        bullying_motivo = Number(data.bullying);
+        problema_casa_motivo = Number(data.problema_casa);
+        mau_entendido_motivo = Number(data.mau_entendido);
+        outro_motivo = Number(data.outro);
+
+        console.log("Dados recebidos:", bullying_motivo, problema_casa_motivo, mau_entendido_motivo, outro_motivo);
+
+        criar_grafico_motivo();
+      })
+  }
+
+  function criar_grafico_motivo() {
+    const grafico_motivo = document.getElementById("canvas_grafico_motivo");
+    new Chart(grafico_motivo, {
+      type: "bar",
+      data: {
+        labels: ["Bullying", "Problemas em casa", "Apenas maus entendimentos", "Outros"],
+        datasets: [
+          {
+            label: "",
+            data: [bullying_motivo, problema_casa_motivo, mau_entendido_motivo, outro_motivo],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(75, 192, 192)",
+              "rgb(255, 205, 86)",
+              "rgb(201, 203, 207)",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          },
+        },
+      },
+    });
+  }
+
+  //Variaveis para gráfico de emocional
+  var qtd_concordam_emocional = 0;  
+  var qtd_discordam_emocional = 0;
+  var percentual_concordam_emocional;
+  var percentual_discordam_emocional;
+
+  function retornar_dados_emocional() {
+    fetch("/pesquisa/retornar/emocional", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(resposta => resposta.json())
+      .then(data => {
+        qtd_concordam_emocional = Number(data.concordam);
+        qtd_discordam_emocional = Number(data.discordam);
+
+        console.log("Dados recebidos:", qtd_concordam_emocional, qtd_discordam_emocional);
+
+        calculo_percentual_emocional();
+        criar_grafico_emocional();
+      })
+  }
+
+  function calculo_percentual_emocional() {
+    var total = qtd_concordam_emocional + qtd_discordam_emocional;
+    if (total === 0) {
+      percentual_concordam_emocional = 0;
+      percentual_discordam_emocional = 0;
+    } else {
+      percentual_concordam_emocional = (qtd_concordam_emocional / total) * 100;
+      percentual_discordam_emocional = (qtd_discordam_emocional / total) * 100;
+    }
+
+    console.log("percentual_concordam_emocional:", percentual_concordam_emocional, "percentual_discordam_emocional:", percentual_discordam_emocional);
+  }
+
+  function criar_grafico_emocional() {
+    const grafico_emocional = document.getElementById("canvas_grafico_emocional");
+    new Chart(grafico_emocional, {
+      type: "pie",
+      data: {
+        labels: ["Concordam", "Discordam"],
+        datasets: [
+          {
+            label: "percentual",
+            data: [percentual_concordam_emocional, percentual_discordam_emocional],
+            backgroundColor: [
+              "rgb(75, 192, 192)",
+              "rgb(255, 99, 132)",
+            ],
+            hoverOffset: 2,
+          },
+        ],
+      },
+    });
+  }
 
     function comecar_jogo() {
         var avatar1Selecionado = document.querySelector('.espaco_jogador1 .btn_avatar.selected');

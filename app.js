@@ -13,6 +13,7 @@ var HOST_APP = process.env.APP_HOST;
 var app = express();
 
 var jogadorRouter = require("./src/routes/jogador");
+var pesquisaRouter = require("./src/routes/pesquisa");
 // var grafico_afastamentoRouter = require("./src/routes/grafico_afastamento");
 // var grafico_motivoRouter = require("./src/routes/grafico_motivo");
 // var grafico_emocionalRouter = require("./src/routes/grafico_emocional");
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
 app.use("/jogador", jogadorRouter);
+app.use("/pesquisa", pesquisaRouter);
 // app.use("/grafico_afastamento", grafico_afastamentoRouter);
 // app.use("/grafico_motivo", grafico_motivoRouter);
 // app.use("/grafico_emocional", grafico_emocionalRouter);
