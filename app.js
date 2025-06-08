@@ -1,4 +1,4 @@
-var ambiente_processo = 'desenvolvimento'; 
+var ambiente_processo = 'producao'; 
 // var caminho_env = '.env.dev'; 
 
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
@@ -14,6 +14,7 @@ var app = express();
 
 var jogadorRouter = require("./src/routes/jogador");
 var pesquisaRouter = require("./src/routes/pesquisa");
+var respostaRouter = require("./src/routes/resposta");
 // var grafico_afastamentoRouter = require("./src/routes/grafico_afastamento");
 // var grafico_motivoRouter = require("./src/routes/grafico_motivo");
 // var grafico_emocionalRouter = require("./src/routes/grafico_emocional");
@@ -26,6 +27,7 @@ app.use(cors());
 
 app.use("/jogador", jogadorRouter);
 app.use("/pesquisa", pesquisaRouter);
+app.use("/resposta", respostaRouter);
 // app.use("/grafico_afastamento", grafico_afastamentoRouter);
 // app.use("/grafico_motivo", grafico_motivoRouter);
 // app.use("/grafico_emocional", grafico_emocionalRouter);

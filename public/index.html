@@ -2,360 +2,402 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Draw With Me</title>
-    <link rel="shortcut icon" href="assets/icon/icon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css2/css.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw With Me</title>
+  <link rel="shortcut icon" href="assets/icon/icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/css.css">
+  <link rel="stylesheet" href="css2/css.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 </head>
 
 <body>
-    <div class="master">
+  <div class="master">
 
 
 
-        <div class="conhecimento" id="conhecimento" style="display: none;">
+    <div class="conhecimento" id="conhecimento" style="display: none;">
 
-            <div class="container_sobre" id="sobre_autor">
-                <div class="div_sobre sobre1" onclick="exibir_sobreAutor()"><span class="titulo_vertical">Sobre
-                        Autor</span></div>
-                <div style="display: none;" id="conteudo_autor">
-                    <div class="img_sobre"><img src="assets/image/eu.jpg" alt="">
+      <div class="container_sobre" id="sobre_autor">
+        <div class="div_sobre sobre1" onclick="exibir_sobreAutor()"><span class="titulo_vertical">Sobre
+            Autor</span></div>
+        <div style="display: none;" id="conteudo_autor">
+          <div class="img_sobre"><img src="assets/image/eu.jpg" alt="">
 
-                        <div class="paragrafo">
-                            <h1>Olá! Quem sou eu?</h1>
-                            <p>
-                                Eu me chamo <b>Anne Y. Yamasaki</b>, estudo no primeiro ano da faculdade SPTech e tenho
-                                23 anos. Meu
-                                passatempo preferido é desenhar, principalmente no estilo de mangá (um tipo de desenho
-                                japonês).
-                                Muita gente me pergunta quando comecei a desenhar. Na verdade, eu era uma criança muito
-                                quieta e
-                                ficava desenhando nos recreios da escola. Eu fazia isso porque sofri bullying, e isso me
-                                deixou
-                                triste e com vontade de ficar sozinha...
-                            </p>
-                        </div>
-                    </div>
-                    <div class="texto">
-                        <p>
-                            Quando eu tinha 15 anos, descobri que estava com depressão, uma doença que deixa a gente
-                            muito
-                            triste por muito tempo. Ficar isolada e sem brincar com outras crianças me fez sentir ainda
-                            pior.
-                            Essa fase foi muito difícil para mim, mas ela me ensinou algo importante. Por isso, eu criei
-                            esse jogo: <b><i>para que nenhuma criança precise se sentir sozinha como eu me
-                                    senti.</i></b></p>
-                    </div>
-                </div>
+            <div class="paragrafo">
+              <h1>Olá! Quem sou eu?</h1>
+              <p>
+                Eu me chamo <b>Anne Y. Yamasaki</b>, estudo no primeiro ano da faculdade SPTech e tenho
+                23 anos. Meu
+                passatempo preferido é desenhar, principalmente no estilo de mangá (um tipo de desenho
+                japonês).
+                Muita gente me pergunta quando comecei a desenhar. Na verdade, eu era uma criança muito
+                quieta e
+                ficava desenhando nos recreios da escola. Eu fazia isso porque sofri bullying, e isso me
+                deixou
+                triste e com vontade de ficar sozinha...
+              </p>
             </div>
+          </div>
+          <div class="texto">
+            <p>
+              Quando eu tinha 15 anos, descobri que estava com depressão, uma doença que deixa a gente
+              muito
+              triste por muito tempo. Ficar isolada e sem brincar com outras crianças me fez sentir ainda
+              pior.
+              Essa fase foi muito difícil para mim, mas ela me ensinou algo importante. Por isso, eu criei
+              esse jogo: <b><i>para que nenhuma criança precise se sentir sozinha como eu me
+                  senti.</i></b></p>
+          </div>
+        </div>
+      </div>
 
-            <div class="container_sobre" id="sobre_site">
-                <div class="div_sobre sobre2" onclick="exibir_sobreSite()"><span class="titulo_vertical">Sobre
-                        Site</span></div>
-                <div style="display: none;" id="conteudo_site">
-                    <div class="img_sobre"><img src="assets/image/draw.jpg" alt="">
+      <div class="container_sobre" id="sobre_site">
+        <div class="div_sobre sobre2" onclick="exibir_sobreSite()"><span class="titulo_vertical">Sobre
+            Site</span></div>
+        <div style="display: none;" id="conteudo_site">
+          <div class="img_sobre"><img src="assets/image/draw.jpg" alt="">
 
-                        <div class="paragrafo">
-                            <h1>Draw With Me é um jogo feito especialmente para crianças.</h1>
-                            <p>
-                                A ideia é simples, mas muito poderosa: desenhar juntas, de um jeito divertido e em
-                                grupo! <b>Brincar é muito importante para que as crianças</b> cresçam felizes e aprendam
-                                a se relacionar com outras pessoas. Quando uma criança fica muito tempo sozinha, ela
-                                pode se sentir triste e isolada.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="texto">
-                        <p>Por isso, esse jogo foi criado para ajudar a juntar crianças, para que elas possam brincar e
-                            se divertir desenhando. <b><i>Com atividades criativas e legais, as crianças podem fazer
-                                    desenhos juntas e criar amizades de verdade.</i></b></p>
-                    </div>
-                </div>
+            <div class="paragrafo">
+              <h1>Draw With Me é um jogo feito especialmente para crianças.</h1>
+              <p>
+                A ideia é simples, mas muito poderosa: desenhar juntas, de um jeito divertido e em
+                grupo! <b>Brincar é muito importante para que as crianças</b> cresçam felizes e aprendam
+                a se relacionar com outras pessoas. Quando uma criança fica muito tempo sozinha, ela
+                pode se sentir triste e isolada.
+              </p>
             </div>
+          </div>
+          <div class="texto">
+            <p>Por isso, esse jogo foi criado para ajudar a juntar crianças, para que elas possam brincar e
+              se divertir desenhando. <b><i>Com atividades criativas e legais, as crianças podem fazer
+                  desenhos juntas e criar amizades de verdade.</i></b></p>
+          </div>
+        </div>
+      </div>
 
-            <div class="container_sobre" id="sobre_pesquisa">
-                <div class="div_sobre sobre3" onclick="exibir_sobrePesquisa()"><span
-                        class="titulo_vertical">Pesquisa</span></div>
-                <div style="display: none;" id="conteudo_pesquisa">
-                    <div class="texto_pesquisa">
+      <div class="container_sobre" id="sobre_pesquisa">
+        <div class="div_sobre sobre3" onclick="exibir_sobrePesquisa()"><span class="titulo_vertical">Pesquisa</span>
+        </div>
+        <div style="display: none;" id="conteudo_pesquisa">
+          <div class="texto_pesquisa">
 
-                        <div class="paragrafo" style="width: 100%; padding: 0;">
-                            <h1>Uma Pesquisa Sobre Conexão e Emoção</h1>
-                            <p>
-                                Durante a pesquisa realizada com os alunos da minha sala na faculdade, foi feita uma
-                                breve enquete com três perguntas sobre a infância e o brincar. Os gráficos abaixo
-                                mostram os resultados das perguntas sendo: gráfico 1 - "<b>Quando você era criança, teve
-                                    algum momento que se afastou de brincar com outras crianças?</b>"; gráfico 2 -
-                                "<b>Se sim, qual foi o motivo?</b>"; gráfico 3 - "<b>Você concorda que esse isolamento
-                                    naquele momento possa ter te afetado emocionalmente depois que cresceu?</b>"
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="graficos">
-                        <div class="grafico_pizza"><canvas id="canvas_grafico_afastamento"></canvas></div>
-                        <div class="grafico_barra"><canvas id="canvas_grafico_motivo"></canvas></div>
-                        <div class="grafico_pizza"><canvas id="canvas_grafico_emocional"></canvas></div>
-                    </div>
-
-                </div>
+            <div class="paragrafo" style="width: 100%; padding: 0;">
+              <h1>Uma Pesquisa Sobre Conexão e Emoção</h1> <button id="btn_quiz" onclick="comecar_quiz()">Ajudar na
+                Pesquisa</button>
+              <p>
+                Durante a pesquisa realizada com os alunos da minha sala na faculdade, foi feita uma
+                breve enquete com três perguntas sobre a infância e o brincar. Os respectivos gráficos abaixo
+                mostram os resultados das perguntas sendo: gráfico 1 - "<b>Quando você era criança, teve
+                  algum momento que se afastou de brincar com outras crianças?</b>"; gráfico 2 -
+                "<b>Se sim, qual foi o motivo?</b>"; gráfico 3 - "<b>Você concorda que esse isolamento
+                  naquele momento possa ter te afetado emocionalmente depois que cresceu?</b>"
+              </p>
             </div>
+          </div>
 
+          <div class="graficos">
+            <div class="grafico_pizza" style="margin-top: 40px;"><canvas id="canvas_grafico_afastamento"></canvas></div>
+            <div class="grafico_barra"><canvas id="canvas_grafico_motivo"></canvas></div>
+            <div class="grafico_pizza"><canvas id="canvas_grafico_emocional"></canvas></div>
+          </div>
 
         </div>
 
-        <div class="inicio" id="inicio">
-            <div class="titulo_inicio">
+        <div class="quiz" id="jogo_quiz" style="display: none;">
+          <h1>Contribua com suas respostas...</h1>
+          <h3>1. Quando você era criança, teve algum momento que se afastou de brincar com outras crianças?
+            <select name="select_afastamento" id="select_afastamento">
+              <option value="null" disabled selected>Selecionar</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </h3>
+          <hr>
 
-                <h1 style="margin: 0;"><span style="color: #F75A5A;">Draw</span> <span
-                        style="color: #FFD63A;">With</span> <span style="color: #6DE1D2;">Me</span></h1>
+          <h3>2. Se sim, qual foi o motivo?
+            <select name="select_motivo" id="select_motivo">
+              <option value="null" disabled selected>Selecionar</option>
+              <option value="bullying">Bullying</option>
+              <option value="problema_casa">Problemas em casa</option>
+              <option value="mau_entendido">Apenas maus entendimentos</option>
+              <option value="outro">Outros</option>
+            </select>
+          </h3>
+          <hr>
 
-                <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
-            </div>
-            <div class="botoes_inicio">
-                <div class="img_container">
-                    <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()"
-                        style="height: 125px; width: 125px;">
-                    <span class="img_texto">Jogar Agora!</span>
-                </div>
-                <div class="img_container">
-                    <img src="assets/image/pintar.png" alt="" onclick="iniciar_sobre()">
-                    <span class="img_texto">Conhecer Sobre!</span>
-                </div>
-            </div>
+          <h3>3. Você concorda que esse isolamento naquele momento possa ter te afetado emocionalmente depois que
+            cresceu?
+            <select name="select_emocional" id="select_emocional">
+              <option value="null" disabled selected>Selecionar</option>
+              <option value="sim">Concordo</option>
+              <option value="nao">Discordo</option>
+            </select>
+          </h3>
+          <hr>
+
+          <button id="btn_enviar" onclick="enviar_respostas()">Enviar Respostas</button>
+
         </div>
+
+      </div>
+
 
     </div>
 
+    <div class="inicio" id="inicio">
+      <div class="titulo_inicio">
+
+        <h1 style="margin: 0;"><span style="color: #F75A5A;">Draw</span> <span style="color: #FFD63A;">With</span> <span
+            style="color: #6DE1D2;">Me</span></h1>
+
+        <p>Um <b>jogo de desenho</b> onde você pode se divertir <b>com seu amigo</b>!</p>
+      </div>
+      <div class="botoes_inicio">
+        <div class="img_container">
+          <img src="assets/image/criatividade.png" alt="" onclick="iniciar_jogo()" style="height: 125px; width: 125px;">
+          <span class="img_texto">Jogar Agora!</span>
+        </div>
+        <div class="img_container">
+          <img src="assets/image/pintar.png" alt="" onclick="iniciar_sobre()">
+          <span class="img_texto">Conhecer Sobre!</span>
+        </div>
+      </div>
     </div>
 
-    <div class="form" id="form" style="display: none;">
+  </div>
 
-        <div class="espaco_cadastro" id="espaco_cadastro" style="display: none;">
-            <div class="espaco_jogador1" id="espaco_jogador1">
-                <h2>Jogador 1</h2>
-                <p>Escolha seu avatar:</p>
-                <div class="espaco_avatar">
-                    <button class="btn_avatar avatar1 avt1" id="avt1" onclick="selecionar_avatar1_jogador1()"></button>
-                    <button class="btn_avatar avatar1 avt2" id="avt2" onclick="selecionar_avatar2_jogador1()"></button>
-                    <button class="btn_avatar avatar1 avt3" id="avt3" onclick="selecionar_avatar3_jogador1()"></button>
-                </div>
-                <p>Seu apelido:</p>
-                <input type="text" id="input_apelido_jogador1" placeholder="Digite seu apelido">
-            </div>
-            <div class="espaco_jogador2" id="espaco_jogador2">
-                <h2>Jogador 2</h2>
-                <p>Escolha seu avatar:</p>
-                <div class="espaco_avatar">
-                    <button class="btn_avatar avatar2 avt4" id="avt4" onclick="selecionar_avatar4_jogador2()"></button>
-                    <button class="btn_avatar avatar2 avt5" id="avt5" onclick="selecionar_avatar5_jogador2()"></button>
-                    <button class="btn_avatar avatar2 avt6" id="avt6" onclick="selecionar_avatar6_jogador2()"></button>
-                </div>
-                <p>Seu apelido:</p>
-                <input type="text" id="input_apelido_jogador2" placeholder="Digite seu apelido">
-            </div>
+  </div>
+
+  <div class="form" id="form" style="display: none;">
+
+    <div class="espaco_cadastro" id="espaco_cadastro" style="display: none;">
+      <div class="espaco_jogador1" id="espaco_jogador1">
+        <h2>Jogador 1</h2>
+        <p>Escolha seu avatar:</p>
+        <div class="espaco_avatar">
+          <button class="btn_avatar avatar1 avt1" id="avt1" onclick="selecionar_avatar1_jogador1()"></button>
+          <button class="btn_avatar avatar1 avt2" id="avt2" onclick="selecionar_avatar2_jogador1()"></button>
+          <button class="btn_avatar avatar1 avt3" id="avt3" onclick="selecionar_avatar3_jogador1()"></button>
         </div>
-
-        <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
-            <div class="conteudo_jogo">
-                <div class="div_jogador">
-                    <h2 id="h2_apelido1"></h2>
-                    <div class="imagem_jogador1" style="display: none;" id="imagem_jogador1"></div>
-                    <img src="assets/image/wsad.png" alt="">
-                </div>
-
-                <div class="canvas-container">
-                    <canvas id="drawingCanvas" width="600" height="400"></canvas>
-                </div>
-
-                <div class="div_jogador">
-                    <h2 id="h2_apelido2"></h2>
-                    <div class="imagem_jogador2" style="display: none;" id="imagem_jogador2"></div>
-                    <img src="assets/image/setas.png" alt="">
-                </div>
-            </div>
+        <p>Seu apelido:</p>
+        <input type="text" id="input_apelido_jogador1" placeholder="Digite seu apelido">
+      </div>
+      <div class="espaco_jogador2" id="espaco_jogador2">
+        <h2>Jogador 2</h2>
+        <p>Escolha seu avatar:</p>
+        <div class="espaco_avatar">
+          <button class="btn_avatar avatar2 avt4" id="avt4" onclick="selecionar_avatar4_jogador2()"></button>
+          <button class="btn_avatar avatar2 avt5" id="avt5" onclick="selecionar_avatar5_jogador2()"></button>
+          <button class="btn_avatar avatar2 avt6" id="avt6" onclick="selecionar_avatar6_jogador2()"></button>
         </div>
-
-        <div class="espaco_botao" id="espaco_botao" style="display: none;">
-            <button onclick="comecar_jogo(), cadastrar()" id="botao_jogo">Começar a Jogar!</button>
-        </div>
-
+        <p>Seu apelido:</p>
+        <input type="text" id="input_apelido_jogador2" placeholder="Digite seu apelido">
+      </div>
     </div>
+
+    <div class="espaco_jogo" style="display: none;" id="espaco_jogo">
+      <div class="conteudo_jogo">
+        <div class="div_jogador">
+          <h2 id="h2_apelido1"></h2>
+          <div class="imagem_jogador1" style="display: none;" id="imagem_jogador1"></div>
+          <img src="assets/image/wsad.png" alt="">
+        </div>
+
+        <div class="canvas-container">
+          <canvas id="drawingCanvas" width="600" height="400"></canvas>
+        </div>
+
+        <div class="div_jogador">
+          <h2 id="h2_apelido2"></h2>
+          <div class="imagem_jogador2" style="display: none;" id="imagem_jogador2"></div>
+          <img src="assets/image/setas.png" alt="">
+        </div>
+      </div>
     </div>
+
+    <div class="espaco_botao" id="espaco_botao" style="display: none;">
+      <button onclick="comecar_jogo(), cadastrar()" id="botao_jogo">Começar a Jogar!</button>
+    </div>
+
+  </div>
+  </div>
 
 </body>
 
 </html>
 <script>
 
-    var avatar_jogador1;
-    var avatar_jogador2;
-
-    var avt1 = document.getElementById('avt1');
-    var avt2 = document.getElementById('avt2');
-    var avt3 = document.getElementById('avt3');
-    var avt4 = document.getElementById('avt4');
-    var avt5 = document.getElementById('avt5');
-    var avt6 = document.getElementById('avt6');
-
-    function selecionar_avatar1_jogador1() {
-        avatar_jogador1 = "assets/image/avatar1.png";
-        avt1.classList.add('selected');
-        avt2.classList.remove('selected');
-        avt3.classList.remove('selected');
-    }
-
-    function selecionar_avatar2_jogador1() {
-        avatar_jogador1 = "assets/image/avatar2.png";
-        avt2.classList.add('selected');
-        avt1.classList.remove('selected');
-        avt3.classList.remove('selected');
-    }
-
-    function selecionar_avatar3_jogador1() {
-        avatar_jogador1 = "assets/image/avatar3.png";
-        avt3.classList.add('selected');
-        avt1.classList.remove('selected');
-        avt2.classList.remove('selected');
-    }
-
-    function selecionar_avatar4_jogador2() {
-        avatar_jogador2 = "assets/image/avatar4.png";
-        avt4.classList.add('selected');
-        avt5.classList.remove('selected');
-        avt6.classList.remove('selected');
-    }
-
-    function selecionar_avatar5_jogador2() {
-        avatar_jogador2 = "assets/image/avatar5.png";
-        avt5.classList.add('selected');
-        avt4.classList.remove('selected');
-        avt6.classList.remove('selected');
-    }
-    function selecionar_avatar6_jogador2() {
-        avatar_jogador2 = "assets/image/avatar6.png";
-        avt6.classList.add('selected');
-        avt4.classList.remove('selected');
-        avt5.classList.remove('selected');
-    }
-
-    function cadastrar() {
-
-        var apelido_jogador1Var = input_apelido_jogador1.value;
-        var apelido_jogador2Var = input_apelido_jogador2.value;
-        var avatar_jogador1Var = avatar_jogador1;
-        var avatar_jogador2Var = avatar_jogador2;
-
-        fetch("/jogador/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                apelido_jogador1Server: apelido_jogador1Var,
-                apelido_jogador2Server: apelido_jogador2Var,
-                avatar_jogador1Server: avatar_jogador1Var,
-                avatar_jogador2Server: avatar_jogador2Var,
-            }),
-        })
-    }
-
-    function iniciar_jogo() {
-        var form = document.getElementById('form');
-        var espaco_cadastro = document.getElementById('espaco_cadastro');
-        var espaco_botao = document.getElementById('espaco_botao');
-        var inicio = document.getElementById('inicio');
-
-        inicio.classList.add('sair_para_cima');
-
-        document.addEventListener('keydown', function (event) {
-            var botao_jogo = document.getElementById('botao_jogo');
-            if (
-                event.key === "Enter"
-            ) {
-                botao_jogo.click();
-            }
-        });
-
-        setTimeout(function () {
-            inicio.style.display = 'none';
-            form.style.display = 'flex';
-            espaco_cadastro.style.display = 'flex';
-            espaco_botao.style.display = 'flex';
-
-            setTimeout(function () {
-                form.classList.add('mostrar');
-            }, 10);
-        }, 1000);
-    }
-
-    function iniciar_sobre() {
-        var inicio = document.getElementById('inicio');
-        var conhecimento = document.getElementById('conhecimento');
 
 
-        inicio.classList.add('sair_para_cima');
+  var avatar_jogador1;
+  var avatar_jogador2;
 
-        setTimeout(function () {
-            inicio.style.display = 'none';
-            conhecimento.style.display = 'flex';
-            exibir_sobreAutor();
-        }, 1000);
+  var avt1 = document.getElementById('avt1');
+  var avt2 = document.getElementById('avt2');
+  var avt3 = document.getElementById('avt3');
+  var avt4 = document.getElementById('avt4');
+  var avt5 = document.getElementById('avt5');
+  var avt6 = document.getElementById('avt6');
 
-    }
+  function selecionar_avatar1_jogador1() {
+    avatar_jogador1 = "assets/image/avatar1.png";
+    avt1.classList.add('selected');
+    avt2.classList.remove('selected');
+    avt3.classList.remove('selected');
+  }
 
-    var sobre_autor = document.getElementById('sobre_autor');
-    var sobre_site = document.getElementById('sobre_site');
-    var sobre_pesquisa = document.getElementById('sobre_pesquisa');
-    var conteudoAutor = document.getElementById('conteudo_autor');
-    var conteudoSite = document.getElementById('conteudo_site');
-    var conteudoPesquisa = document.getElementById('conteudo_pesquisa');
+  function selecionar_avatar2_jogador1() {
+    avatar_jogador1 = "assets/image/avatar2.png";
+    avt2.classList.add('selected');
+    avt1.classList.remove('selected');
+    avt3.classList.remove('selected');
+  }
 
-    function exibir_sobreAutor() {
-        sobre_autor.classList.add('mostrar_sobre');
-        sobre_site.classList.remove('mostrar_sobre');
-        sobre_pesquisa.classList.remove('mostrar_sobre');
+  function selecionar_avatar3_jogador1() {
+    avatar_jogador1 = "assets/image/avatar3.png";
+    avt3.classList.add('selected');
+    avt1.classList.remove('selected');
+    avt2.classList.remove('selected');
+  }
 
-        conteudoAutor.style.display = "flex";
-        conteudoSite.style.display = "none";
-        conteudoPesquisa.style.display = "none";
-    }
+  function selecionar_avatar4_jogador2() {
+    avatar_jogador2 = "assets/image/avatar4.png";
+    avt4.classList.add('selected');
+    avt5.classList.remove('selected');
+    avt6.classList.remove('selected');
+  }
 
-    function exibir_sobreSite() {
-        sobre_autor.classList.remove('mostrar_sobre');
-        sobre_site.classList.add('mostrar_sobre');
-        sobre_pesquisa.classList.remove('mostrar_sobre');
+  function selecionar_avatar5_jogador2() {
+    avatar_jogador2 = "assets/image/avatar5.png";
+    avt5.classList.add('selected');
+    avt4.classList.remove('selected');
+    avt6.classList.remove('selected');
+  }
+  function selecionar_avatar6_jogador2() {
+    avatar_jogador2 = "assets/image/avatar6.png";
+    avt6.classList.add('selected');
+    avt4.classList.remove('selected');
+    avt5.classList.remove('selected');
+  }
 
-        conteudoAutor.style.display = "none";
-        conteudoSite.style.display = "flex";
-        conteudoPesquisa.style.display = "none";
-    }
+  function cadastrar() {
 
-    function exibir_sobrePesquisa() {
-        sobre_autor.classList.remove('mostrar_sobre');
-        sobre_site.classList.remove('mostrar_sobre');
-        sobre_pesquisa.classList.add('mostrar_sobre');
+    var apelido_jogador1Var = input_apelido_jogador1.value;
+    var apelido_jogador2Var = input_apelido_jogador2.value;
+    var avatar_jogador1Var = avatar_jogador1;
+    var avatar_jogador2Var = avatar_jogador2;
 
-        conteudoAutor.style.display = "none";
-        conteudoSite.style.display = "none";
-        conteudoPesquisa.style.display = "flex";
+    fetch("/jogador/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        apelido_jogador1Server: apelido_jogador1Var,
+        apelido_jogador2Server: apelido_jogador2Var,
+        avatar_jogador1Server: avatar_jogador1Var,
+        avatar_jogador2Server: avatar_jogador2Var,
+      }),
+    })
+  }
 
-        retornar_dados_afastamento();
-        retornar_dados_motivo();
-        retornar_dados_emocional();
-    }
+  function iniciar_jogo() {
+    var form = document.getElementById('form');
+    var espaco_cadastro = document.getElementById('espaco_cadastro');
+    var espaco_botao = document.getElementById('espaco_botao');
+    var inicio = document.getElementById('inicio');
 
-     // variaveis para gráfico de afastamento
+    inicio.classList.add('sair_para_cima');
+
+    document.addEventListener('keydown', function (event) {
+      var botao_jogo = document.getElementById('botao_jogo');
+      if (
+        event.key === "Enter"
+      ) {
+        botao_jogo.click();
+      }
+    });
+
+    setTimeout(function () {
+      inicio.style.display = 'none';
+      form.style.display = 'flex';
+      espaco_cadastro.style.display = 'flex';
+      espaco_botao.style.display = 'flex';
+
+      setTimeout(function () {
+        form.classList.add('mostrar');
+      }, 10);
+    }, 1000);
+  }
+
+  function iniciar_sobre() {
+    var inicio = document.getElementById('inicio');
+    var conhecimento = document.getElementById('conhecimento');
+
+
+    inicio.classList.add('sair_para_cima');
+
+    setTimeout(function () {
+      inicio.style.display = 'none';
+      conhecimento.style.display = 'flex';
+      exibir_sobreAutor();
+    }, 1000);
+
+  }
+
+  var sobre_autor = document.getElementById('sobre_autor');
+  var sobre_site = document.getElementById('sobre_site');
+  var sobre_pesquisa = document.getElementById('sobre_pesquisa');
+  var conteudoAutor = document.getElementById('conteudo_autor');
+  var conteudoSite = document.getElementById('conteudo_site');
+  var conteudoPesquisa = document.getElementById('conteudo_pesquisa');
+
+  function exibir_sobreAutor() {
+    sobre_autor.classList.add('mostrar_sobre');
+    sobre_site.classList.remove('mostrar_sobre');
+    sobre_pesquisa.classList.remove('mostrar_sobre');
+
+    conteudoAutor.style.display = "flex";
+    conteudoSite.style.display = "none";
+    conteudoPesquisa.style.display = "none";
+    jogo_quiz.style.display = "none";
+  }
+
+  function exibir_sobreSite() {
+    sobre_autor.classList.remove('mostrar_sobre');
+    sobre_site.classList.add('mostrar_sobre');
+    sobre_pesquisa.classList.remove('mostrar_sobre');
+
+    conteudoAutor.style.display = "none";
+    conteudoSite.style.display = "flex";
+    conteudoPesquisa.style.display = "none";
+    jogo_quiz.style.display = "none";
+  }
+
+  function exibir_sobrePesquisa() {
+    sobre_autor.classList.remove('mostrar_sobre');
+    sobre_site.classList.remove('mostrar_sobre');
+    sobre_pesquisa.classList.add('mostrar_sobre');
+
+    conteudoAutor.style.display = "none";
+    conteudoSite.style.display = "none";
+    conteudoPesquisa.style.display = "flex";
+    jogo_quiz.style.display = "none";
+
+    retornar_dados_afastamento();
+    retornar_dados_motivo();
+    retornar_dados_emocional();
+  }
+
+  // variaveis para gráfico de afastamento
   var qtd_sim_afastamento = 0;
   var qtd_nao_afastamento = 0;
   var percentual_sim_afastamento;
   var percentual_nao_afastamento;
 
-    function retornar_dados_afastamento() {
+  function retornar_dados_afastamento() {
     fetch("/pesquisa/retornar/afastamento", {
       method: "GET",
       headers: {
@@ -387,7 +429,7 @@
     console.log("percentual_sim_afastamento:", percentual_sim_afastamento, "percentual_nao_afastamento:", percentual_nao_afastamento);
   }
 
-    
+
   function criar_grafico_afastamento() {
     const grafico_afastamento = document.getElementById("canvas_grafico_afastamento");
     new Chart(grafico_afastamento, {
@@ -409,7 +451,7 @@
     });
   }
 
-    //variaveis para grafico de motivo
+  //variaveis para grafico de motivo
   var bullying_motivo = 0;
   var problema_casa_motivo = 0;
   var mau_entendido_motivo = 0;
@@ -467,7 +509,7 @@
   }
 
   //Variaveis para gráfico de emocional
-  var qtd_concordam_emocional = 0;  
+  var qtd_concordam_emocional = 0;
   var qtd_discordam_emocional = 0;
   var percentual_concordam_emocional;
   var percentual_discordam_emocional;
@@ -525,123 +567,162 @@
     });
   }
 
-    function comecar_jogo() {
-        var avatar1Selecionado = document.querySelector('.espaco_jogador1 .btn_avatar.selected');
-        var avatar2Selecionado = document.querySelector('.espaco_jogador2 .btn_avatar.selected');
-        var apelido1 = document.getElementById('input_apelido_jogador1').value.trim();
-        var apelido2 = document.getElementById('input_apelido_jogador2').value.trim();
+  var jogo_quiz = document.getElementById('jogo_quiz');
 
-        if (!avatar1Selecionado || !avatar2Selecionado || apelido1 === "" || apelido2 === "") {
-            alert("Escolha um avatar e preencha o apelido para ambos os jogadores!");
-            return;
-        }
+  function comecar_quiz() {
+    conteudoPesquisa.style.display = "none";
+    jogo_quiz.style.display = "block";
+  }
 
-        if (apelido1.length > 12 || apelido2.length > 12) {
-            alert("O apelido deve ter no máximo 12 caracteres!");
-            return;
-        }
 
-        document.getElementById('h2_apelido1').textContent = apelido1;
-        document.getElementById('h2_apelido2').textContent = apelido2;
+function enviar_respostas() {
+  var select_afastamento = document.getElementById('select_afastamento');
+  var select_motivo = document.getElementById('select_motivo');
+  var select_emocional = document.getElementById('select_emocional');
 
-        var form = document.getElementById('form');
-        var espaco_jogador1 = document.getElementById('espaco_jogador1');
-        var espaco_jogador2 = document.getElementById('espaco_jogador2');
-        var imagem_jogador1 = document.getElementById('imagem_jogador1');
-        var imagem_jogador2 = document.getElementById('imagem_jogador2');
-        var espaco_cadastro = document.getElementById('espaco_cadastro');
-        var espaco_jogo = document.getElementById('espaco_jogo');
-        var espaco_botao = document.getElementById('espaco_botao');
-        var botao_jogo = document.getElementById('botao_jogo');
+  if (select_afastamento.value === "null" || select_motivo.value === "null" || select_emocional.value === "null") {
+    alert("Por favor, preencha todas as respostas antes de enviar.");
+    return;
+  }else {
+    fetch("/resposta/cadastrar", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    respostas: [
+      { opcao: select_afastamento.value, fkPesquisa: 1 },
+      { opcao: select_motivo.value, fkPesquisa: 2 },
+      { opcao: select_emocional.value, fkPesquisa: 3 }
+    ]
+  })
+});
+    alert("Respostas enviadas com sucesso!");
+    retornar_dados_afastamento();
+    retornar_dados_motivo();
+    retornar_dados_emocional();
+  }
+  location.reload(true);
+  
+  }
 
-        imagem_jogador1.style.backgroundImage = `url('${avatar_jogador1}')`;
-        imagem_jogador1.style.backgroundSize = "cover";
-        imagem_jogador1.style.backgroundPosition = "center";
 
-        imagem_jogador2.style.backgroundImage = `url('${avatar_jogador2}')`;
-        imagem_jogador2.style.backgroundSize = "cover";
-        imagem_jogador2.style.backgroundPosition = "center";
 
-        form.classList.add('expandir');
-        espaco_jogador1.classList.add('sair_para_esquerda');
-        espaco_jogador2.classList.add('sair_para_direita');
-        imagem_jogador1.style.display = 'block';
-        imagem_jogador2.style.display = 'block';
-        botao_jogo.style.display = 'none';
+  function comecar_jogo() {
+    var avatar1Selecionado = document.querySelector('.espaco_jogador1 .btn_avatar.selected');
+    var avatar2Selecionado = document.querySelector('.espaco_jogador2 .btn_avatar.selected');
+    var apelido1 = document.getElementById('input_apelido_jogador1').value.trim();
+    var apelido2 = document.getElementById('input_apelido_jogador2').value.trim();
 
-        setTimeout(function () {
-            espaco_cadastro.style.display = 'none';
-            espaco_botao.style.display = 'none';
-            espaco_jogo.style.display = 'flex';
-            espaco_jogo.classList.add('aparecer_espaco_jogo');
-        }, 2000);
-
-        setTimeout(function () {
-            espaco_jogo.classList.add('mostrar_conteudo');
-            iniciarCanvas();
-        }, 3000);
-
+    if (!avatar1Selecionado || !avatar2Selecionado || apelido1 === "" || apelido2 === "") {
+      alert("Escolha um avatar e preencha o apelido para ambos os jogadores!");
+      return;
     }
 
-    function iniciarCanvas() {
-        var canvas = document.getElementById('drawingCanvas');
-        var ctx = canvas.getContext('2d');
-
-        // posição de jogador 1 
-        let pos1 = { x: 175, y: 200 };
-        // posição de jogador 2 
-        let pos2 = { x: 460, y: 200 };
-        let tamanho = 5;
-
-        const keysPressed = {};
-
-        document.addEventListener('keydown', function (e) {
-            keysPressed[e.key] = true;
-        });
-        document.addEventListener('keyup', function (e) {
-            keysPressed[e.key] = false;
-        });
-
-        function processaMovimento() {
-
-            let old1 = { x: pos1.x, y: pos1.y };
-            let moved1 = false;
-            let step = 1;
-            if (keysPressed['w'] || keysPressed['W']) { pos1.y -= step; moved1 = true; }
-            if (keysPressed['s'] || keysPressed['S']) { pos1.y += step; moved1 = true; }
-            if (keysPressed['a'] || keysPressed['A']) { pos1.x -= step; moved1 = true; }
-            if (keysPressed['d'] || keysPressed['D']) { pos1.x += step; moved1 = true; }
-            if (moved1) {
-                ctx.beginPath();
-                ctx.moveTo(old1.x, old1.y);
-                ctx.lineTo(pos1.x, pos1.y);
-                ctx.strokeStyle = "#0074D9";
-                ctx.lineWidth = tamanho;
-                ctx.stroke();
-            }
-
-            let old2 = { x: pos2.x, y: pos2.y };
-            let moved2 = false;
-            if (keysPressed['ArrowUp']) { pos2.y -= step; moved2 = true; }
-            if (keysPressed['ArrowDown']) { pos2.y += step; moved2 = true; }
-            if (keysPressed['ArrowLeft']) { pos2.x -= step; moved2 = true; }
-            if (keysPressed['ArrowRight']) { pos2.x += step; moved2 = true; }
-            if (moved2) {
-                ctx.beginPath();
-                ctx.moveTo(old2.x, old2.y);
-                ctx.lineTo(pos2.x, pos2.y);
-                ctx.strokeStyle = "#FF4136";
-                ctx.lineWidth = tamanho;
-                ctx.stroke();
-            }
-        }
-
-        // desenhar enquanto as teclas estiverem pressionadas
-        function gameLoop() {
-            processaMovimento();
-            requestAnimationFrame(gameLoop);
-        }
-        gameLoop();
+    if (apelido1.length > 12 || apelido2.length > 12) {
+      alert("O apelido deve ter no máximo 12 caracteres!");
+      return;
     }
+
+    document.getElementById('h2_apelido1').textContent = apelido1;
+    document.getElementById('h2_apelido2').textContent = apelido2;
+
+    var form = document.getElementById('form');
+    var espaco_jogador1 = document.getElementById('espaco_jogador1');
+    var espaco_jogador2 = document.getElementById('espaco_jogador2');
+    var imagem_jogador1 = document.getElementById('imagem_jogador1');
+    var imagem_jogador2 = document.getElementById('imagem_jogador2');
+    var espaco_cadastro = document.getElementById('espaco_cadastro');
+    var espaco_jogo = document.getElementById('espaco_jogo');
+    var espaco_botao = document.getElementById('espaco_botao');
+    var botao_jogo = document.getElementById('botao_jogo');
+
+    imagem_jogador1.style.backgroundImage = `url('${avatar_jogador1}')`;
+    imagem_jogador1.style.backgroundSize = "cover";
+    imagem_jogador1.style.backgroundPosition = "center";
+
+    imagem_jogador2.style.backgroundImage = `url('${avatar_jogador2}')`;
+    imagem_jogador2.style.backgroundSize = "cover";
+    imagem_jogador2.style.backgroundPosition = "center";
+
+    form.classList.add('expandir');
+    espaco_jogador1.classList.add('sair_para_esquerda');
+    espaco_jogador2.classList.add('sair_para_direita');
+    imagem_jogador1.style.display = 'block';
+    imagem_jogador2.style.display = 'block';
+    botao_jogo.style.display = 'none';
+
+    setTimeout(function () {
+      espaco_cadastro.style.display = 'none';
+      espaco_botao.style.display = 'none';
+      espaco_jogo.style.display = 'flex';
+      espaco_jogo.classList.add('aparecer_espaco_jogo');
+    }, 2000);
+
+    setTimeout(function () {
+      espaco_jogo.classList.add('mostrar_conteudo');
+      iniciarCanvas();
+    }, 3000);
+
+  }
+
+  function iniciarCanvas() {
+    var canvas = document.getElementById('drawingCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // posição de jogador 1 
+    let pos1 = { x: 175, y: 200 };
+    // posição de jogador 2 
+    let pos2 = { x: 460, y: 200 };
+    let tamanho = 5;
+
+    const keysPressed = {};
+
+    document.addEventListener('keydown', function (e) {
+      keysPressed[e.key] = true;
+    });
+    document.addEventListener('keyup', function (e) {
+      keysPressed[e.key] = false;
+    });
+
+    function processaMovimento() {
+
+      let old1 = { x: pos1.x, y: pos1.y };
+      let moved1 = false;
+      let step = 1;
+      if (keysPressed['w'] || keysPressed['W']) { pos1.y -= step; moved1 = true; }
+      if (keysPressed['s'] || keysPressed['S']) { pos1.y += step; moved1 = true; }
+      if (keysPressed['a'] || keysPressed['A']) { pos1.x -= step; moved1 = true; }
+      if (keysPressed['d'] || keysPressed['D']) { pos1.x += step; moved1 = true; }
+      if (moved1) {
+        ctx.beginPath();
+        ctx.moveTo(old1.x, old1.y);
+        ctx.lineTo(pos1.x, pos1.y);
+        ctx.strokeStyle = "#0074D9";
+        ctx.lineWidth = tamanho;
+        ctx.stroke();
+      }
+
+      let old2 = { x: pos2.x, y: pos2.y };
+      let moved2 = false;
+      if (keysPressed['ArrowUp']) { pos2.y -= step; moved2 = true; }
+      if (keysPressed['ArrowDown']) { pos2.y += step; moved2 = true; }
+      if (keysPressed['ArrowLeft']) { pos2.x -= step; moved2 = true; }
+      if (keysPressed['ArrowRight']) { pos2.x += step; moved2 = true; }
+      if (moved2) {
+        ctx.beginPath();
+        ctx.moveTo(old2.x, old2.y);
+        ctx.lineTo(pos2.x, pos2.y);
+        ctx.strokeStyle = "#FF4136";
+        ctx.lineWidth = tamanho;
+        ctx.stroke();
+      }
+    }
+
+    // desenhar enquanto as teclas estiverem pressionadas
+    function gameLoop() {
+      processaMovimento();
+      requestAnimationFrame(gameLoop);
+    }
+    gameLoop();
+  }
 
 </script>
