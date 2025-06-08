@@ -3,7 +3,6 @@ var pesquisaModel = require("../models/pesquisaModel");
 function retornar_dados_afastamento(req, res) {
     var qtd_sim = req.body.qtd_simServer;
     var qtd_nao = req.body.qtd_naoServer;
-        // Passe os valores como parâmetro e vá para o arquivo pesquisaModel.js
         pesquisaModel.retornar_dados_afastamento(qtd_sim, qtd_nao)
             .then(
                 function (resultado) {

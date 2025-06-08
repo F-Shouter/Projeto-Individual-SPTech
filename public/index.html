@@ -391,7 +391,6 @@
     retornar_dados_emocional();
   }
 
-  // variaveis para gráfico de afastamento
   var qtd_sim_afastamento = 0;
   var qtd_nao_afastamento = 0;
   var percentual_sim_afastamento;
@@ -451,7 +450,6 @@
     });
   }
 
-  //variaveis para grafico de motivo
   var bullying_motivo = 0;
   var problema_casa_motivo = 0;
   var mau_entendido_motivo = 0;
@@ -508,7 +506,6 @@
     });
   }
 
-  //Variaveis para gráfico de emocional
   var qtd_concordam_emocional = 0;
   var qtd_discordam_emocional = 0;
   var percentual_concordam_emocional;
@@ -668,9 +665,7 @@ function enviar_respostas() {
     var canvas = document.getElementById('drawingCanvas');
     var ctx = canvas.getContext('2d');
 
-    // posição de jogador 1 
     let pos1 = { x: 175, y: 200 };
-    // posição de jogador 2 
     let pos2 = { x: 460, y: 200 };
     let tamanho = 5;
 

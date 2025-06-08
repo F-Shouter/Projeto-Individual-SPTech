@@ -1,13 +1,11 @@
 var jogadorModel = require("../models/jogadorModel");
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var apelido_jogador1 = req.body.apelido_jogador1Server;
     var apelido_jogador2 = req.body.apelido_jogador2Server;
     var avatar_jogador1 = req.body.avatar_jogador1Server;
     var avatar_jogador2 = req.body.avatar_jogador2Server;
 
-        // Passe os valores como parâmetro e vá para o arquivo jogadorModel.js
         jogadorModel.cadastrar(apelido_jogador1, apelido_jogador2, avatar_jogador1, avatar_jogador2)
             .then(
                 function (resultado) {
@@ -26,13 +24,11 @@ function cadastrar(req, res) {
     }
 
 function retornar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var apelido_jogador1 = req.body.apelido_jogador1Server;
     var apelido_jogador2 = req.body.apelido_jogador2Server;
     var avatar_jogador1 = req.body.avatar_jogador1Server;
     var avatar_jogador2 = req.body.avatar_jogador2Server;
     
-        // Passe os valores como parâmetro e vá para o arquivo jogadorModel.js
         jogadorModel.retornar(apelido_jogador1, apelido_jogador2, avatar_jogador1, avatar_jogador2)
             .then(
                 function (resultado) {
