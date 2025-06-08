@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -87,7 +87,7 @@
               <h1>Uma Pesquisa Sobre Conexão e Emoção</h1> <button id="btn_quiz" onclick="comecar_quiz()">Ajudar na
                 Pesquisa</button>
               <p>
-                Durante a pesquisa realizada com os alunos da minha sala na faculdade, foi feita uma
+                Durante a pesquisa realizada com 50 alunos da minha sala na faculdade, foi feita uma
                 breve enquete com três perguntas sobre a infância e o brincar. Os respectivos gráficos abaixo
                 mostram os resultados das perguntas sendo: gráfico 1 - "<b>Quando você era criança, teve
                   algum momento que se afastou de brincar com outras crianças?</b>"; gráfico 2 -
@@ -100,7 +100,7 @@
           <div class="graficos">
             <div class="grafico_pizza" style="margin-top: 40px;"><canvas id="canvas_grafico_afastamento"></canvas></div>
             <div class="grafico_barra"><canvas id="canvas_grafico_motivo"></canvas></div>
-            <div class="grafico_pizza"><canvas id="canvas_grafico_emocional"></canvas></div>
+            <div class="grafico_pizza"><canvas id="canvas_grafico_emocional" style="margin-top: 25px;"></canvas></div>
           </div>
 
         </div>
@@ -483,7 +483,7 @@
         labels: ["Bullying", "Problemas em casa", "Apenas maus entendimentos", "Outros"],
         datasets: [
           {
-            label: "",
+            label: "pessoas",
             data: [bullying_motivo, problema_casa_motivo, mau_entendido_motivo, outro_motivo],
             backgroundColor: [
               "rgb(255, 99, 132)",
